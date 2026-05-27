@@ -1,0 +1,87 @@
+/* =========================
+   全体設定
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: white;
+  background: #0c0693;
+  font-family: sans-serif;
+}
+
+/* サイト全体の背景動画 */
+.site-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.75;
+}
+
+/* 背景動画の上にかけるフィルター */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(12, 6, 147, 0.45),
+      rgba(12, 6, 147, 0.30),
+      rgba(226, 232, 240, 0.80));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================
+   Header
+========================= */
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  text-align: left;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background-color: rgba(255, 255, 255, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  opacity: 0.7;
+}
+
+/* =========================
+   共通
+========================= */
+
+.section-label {
+  letter-spacing: 2px;
+  font-size: 14px;
+  opacity: 0.7;
+}
