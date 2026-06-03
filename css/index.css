@@ -1005,7 +1005,7 @@
 
 @media screen and (max-width: 768px) {
   .hero-lights {
-      transform: scale(1.25);
+      transform: scale(3);
       transform-origin: top center;
     }
 
@@ -1069,7 +1069,7 @@
 
 @media screen and (max-width: 480px) {
   .hero-lights {
-      transform: scale(1.25);
+      transform: scale(3);
       transform-origin: top center;
     }
   .hero {
