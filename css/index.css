@@ -1004,10 +1004,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  .hero-lights {
-      transform: scale(5);
-      transform-origin: top center;
-    }
+
+        .hero-lights {
+          transform: scale(4);
+          transform-origin: top center;
+        }
+
+        .moon-decoration {
+          top: 50px;
+          transform: scale(2);
+        }
 
   .hero {
     min-height: 92vh;
