@@ -1,196 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>ポートフォリオ</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>ポートフォリオ</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
 
+<body>
+  <video class="site-bg" autoplay muted loop playsinline>
+    <source src="夜空.mp4" type="video/mp4">
+  </video>
 
-  <body>
-    <video class="site-bg" autoplay muted loop playsinline>
-      <source src="夜空.mp4" type="video/mp4">
-    </video>
+  <header>
+    <h1>Suisei Works</h1>
+    <!--メニューやリンクをまとめる-->
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="works.html">Works</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+  </header>
 
-    <header>
-      <h1>Suisei Works</h1>
-      <!--メニューやリンクをまとめる-->
-      <nav class="menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#works">Works</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <section class="hero">
+    <div class="hero-curtain" aria-hidden="true">
+      <div class="curtain-panel curtain-left"></div>
+      <div class="curtain-panel curtain-right"></div>
+    </div>
 
-    <section class="hero">
-      <div class="hero-content">
-        <p class="hero-label">Suisei Works</p>
+    <div class="hero-lights" aria-hidden="true">
+      <img src="images/moon-decoration.png" alt="" class="moon-decoration">
 
-        <h2 class="hero-title">
+      <div class="hanging-light light-1">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <img src="images/light-star.png" alt="" class="light-image light-star-image">
+        </div>
+      </div>
+
+      <div class="hanging-light light-2">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <img src="images/light-bulb.png" alt="" class="light-image light-bulb-image">
+        </div>
+      </div>
+
+      <div class="hanging-light light-3">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <span class="round-light"></span>
+        </div>
+      </div>
+
+      <div class="hanging-light light-4 main-light">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <img src="images/main-star-light.png" alt="" class="light-image main-star-image">
+        </div>
+      </div>
+
+      <div class="hanging-light light-5">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <span class="round-light"></span>
+        </div>
+      </div>
+
+      <div class="hanging-light light-6">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <img src="images/light-star.png" alt="" class="light-image light-star-image">
+        </div>
+      </div>
+
+      <div class="hanging-light light-7">
+        <div class="light-swing">
+          <span class="light-cord"></span>
+          <img src="images/light-bulb.png" alt="" class="light-image light-bulb-image">
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-label">Suisei Works</p>
+
+      <h2 class="hero-title">
           <span>青く澄んだ世界観で、伝わる表現を。</span>
         </h2>
+  </section>
+  <section class="hero-no-text fade-in">
+    <div class="hero naiyou">
+          <p class="hero-text">
+                    動画編集・デザイン・イラストを通して、<br>
+                    見る人に届くビジュアルを形にしています。
+                  </p>
 
-        <p class="hero-text">
-          動画編集・デザイン・イラストを通して、<br>
-          見る人に届くビジュアルを形にしています。
-        </p>
+          <a class="hero-button" href="works.html">Worksを見る</a>
+          </div>
+        </div>
 
-        <a class="hero-button" href="#works">Worksを見る</a>
-      </div>
-    </section>
+  </section>
 
-    <section id="about" class="about">
-      <div class="about-card">
-        <p class="section-label">About</p>
-        <h2>すいせい</h2>
-        <p class="about-text">
-          理系大学で宇宙に関する分野を学び、現在は制作活動にも取り組んでいます。
-        </p>
-        <h3>Profile</h3>
-        <ul class="profile-list">
-          <li>現在はIT企業でSEとして勤務</li>
-          <li>動画編集 / デザイン制作 / イラスト制作</li>
-          <li>HTML / CSSを用いたポートフォリオを制作</li>
-          <li>青 / 宇宙 / 水 / 透明感のある世界観を大切に制作</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills" class="skills">
-      <p class="section-label">Skills</p>
-      <h2>できること</h2>
-
-      <p class="skills-text">
-        青や透明感のある表現を大切にしながら、<br>
-        目的や雰囲気に合わせた制作を行っています。
+  <section class="top-guide fade-in">
+    <p class="section-label fade-in">
+        Next
+      </p>
+    <h2>
+        制作内容をもっとみる
+      </h2>
+    <p class="top-guide-text">
+        動画編集・デザイン・イラスト・Web制作など、<br>
+        制作した作品や使用ソフト、プロフィールをまとめています。
       </p>
 
-      <div class="skill-list">
-        <div class="skill-card">
-          <h3>動画編集</h3>
-          <p>ショート動画を中心に、テロップ・BGM・アニメーションを組み合わせた編集を行っています。</p>
-        </div>
+    <div class="top-guide-buttons">
+      <a href="works.html">
+        Worksを見る
+      </a>
+      <a href="about.html">
+        Aboutを見る
+      </a>
+    </div>
+  </section>
 
-        <div class="skill-card">
-          <h3>デザイン制作</h3>
-          <p>SNS投稿や資料デザインなど、目的に合わせたビジュアル制作を行っています。</p>
-        </div>
-
-        <div class="skill-card">
-          <h3>イラスト</h3>
-          <p>アイコンや立ち絵など、キャラクターの雰囲気に合わせたイラスト制作を行っています。</p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Web制作</h3>
-          <p>HTML / CSSを用いて、ポートフォリオサイトなどのWeb制作に取り組んでいます。</p>
-        </div>
-
-        <div class="skill-card">
-          <h3>VTuber 2Dキャラクター制作</h3>
-          <p>キャラクターデザインからLive2Dモデル制作まで、配信で使用できる形を目指して制作中です。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="works" class="works">
-      <p class="section-label">Works</p>
-      <h2>制作実績</h2>
-
-      <p class="works-text">
-        制作したものを通して、<br>
-        表現の雰囲気や見せ方をご覧いただけます。
-      </p>
-
-      <h3 class="works-group-title">公開中</h3>
-
-      <div class="works-list">
-        <div class="work-card">
-          <p class="work-category">動画編集</p>
-          <h3>星好き必見！星空絶景スポット3選</h3>
-          <p>
-            星空スポットをテーマにしたショート動画です。
-            BGM・音声・テロップ・アニメーションを組み合わせ、
-            世界観と見やすさを意識して制作しました。
-          </p>
-          <a href="https://www.foriio.com/works/2376843">この作品を見る</a>
-        </div>
-
-        <div class="work-card">
-          <p class="work-category">デザイン制作</p>
-          <h3>カフェの季節限定メニュー紹介</h3>
-          <p>
-            カフェの季節限定メニューをテーマにしたSNS用デザインです。
-            商品の魅力が伝わるよう、配色・余白・写真の見せ方を意識して制作しました。
-          </p>
-          <a href="https://www.foriio.com/works/2376827">この作品を見る</a>
-        </div>
-
-        <div class="work-card">
-          <p class="work-category">イラスト</p>
-          <h3>アイコン・立ち絵制作</h3>
-          <p>
-            青を基調としたキャラクターのアイコンと立ち絵を制作しました。
-            透明感のある色味や表情、シルエットを意識して仕上げています。
-          </p>
-          <a href="https://www.foriio.com/works/2388663">この作品を見る</a>
-        </div>
-
-        <div class="work-card">
-          <p class="work-category">Web制作</p>
-          <h3>Suisei Works</h3>
-          <p>
-            現在ご覧いただいているこのサイトを、HTML / CSSを用いて制作しました。
-            青や透明感のある世界観を大切にしながら、構成・余白・アニメーションを意識して制作しています。
-          </p>
-        </div>
-      </div>
-
-      <h3 class="works-group-title">制作中</h3>
-
-      <div class="works-list">
-        <div class="work-card coming-soon">
-          <p class="work-category">VTuber 2Dキャラクター制作</p>
-          <h3>Coming Soon...</h3>
-          <p>
-            キャラクターデザインからLive2Dモデル制作まで、
-            配信で使用できる形を目指して制作中です。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="portfolio-link">
-      <p class="section-label">Portfolio</p>
-      <h2>その他の作品はこちら</h2>
-      <p>
-        掲載作品の一覧は、foriioのポートフォリオよりご覧いただけます。
-      </p>
-      <a href="https://fori.io/suisei-aqueous00">作品一覧を見る</a>
-    </section>
-    <section id="contact" class="contact">
-      <p class="section-label">Contact</p>
-      <h2>ご依頼・ご相談はこちらから</h2>
-      <p>
-        動画編集・デザイン制作・イラスト制作など、<br>
-        制作に関するご相談は各種SNSまたはポートフォリオよりお気軽にご連絡ください。
-      </p>
-
-      <div class="contact-buttons">
-        <a href="https://fori.io/suisei-aqueous00">作品一覧を見る</a>
-      </div>
-
-      <div class="request-area">
-        <p class="request-title">ご依頼はこちら</p>
-
-        <div class="sns-buttons">
-          <a href="https://x.com/comet_aqueous?s=21&t=s6ivhES5JN8CiOPnmUKwOw">X（旧Twitter）</a>
-          <a href="https://www.instagram.com/comet_aqueous?igsh=MWZ4cWE4b2Q2dGxoOA%3D%3D&utm_source=qr">Instagram</a>
-        </div>
-      </div>
-    </section>
-
-  </body>
+  <script src="js/common.js"></script>
+</body>
 </html>

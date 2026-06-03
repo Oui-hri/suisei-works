@@ -1,431 +1,1004 @@
-     /* =========================
+/* =========================
    Hero
 ========================= */
 
-     .hero {
-       position: relative;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       min-height: 80vh;
-       padding: 0 24px;
-       text-align: center;
-       justify-content: center;
-     }
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 0 24px;
+  text-align: center;
+  overflow: hidden;
+}
 
-     .hero-content {
-       position: relative;
-       z-index: 2;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-     }
+.hero-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
 
-     .hero-label {
-       letter-spacing: 2px;
-       font-size: 14px;
-       opacity: 0.85;
-     }
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(150px);
+}
 
-     .hero-title {
-       font-weight: bold;
-       font-size: 36px;
-       line-height: 1.3;
-       max-width: 720px;
-       margin: 16px 0;
-     }
+.hero-label {
+  letter-spacing: 2px;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.6s ease forwards 1.55s;
+}
 
-     .hero-title span {
-       position: relative;
-       display: inline-block;
-       padding-bottom: 12px;
-       opacity: 0;
-       transform: translateX(-24px);
-       animation: titleFade 0.8s ease forwards 0.8s;
-       overflow: hidden;
-     }
+.hero-title {
+  position: relative;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 1.3;
+  max-width: 720px;
+  margin: 16px 0;
+}
 
-     /* 残る下線 */
-     .hero-title span::after {
-       content: "";
-       position: absolute;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-       height: 2px;
-       background: linear-gradient(90deg,
-           transparent,
-           lightblue,
-           white,
-           lightblue,
-           transparent);
-       box-shadow: 0 0 10px lightblue;
-       opacity: 0;
-       animation: underlineShow 0.4s ease forwards 1.1s;
-     }
+/* コピー文本体 */
+.hero-title span {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  animation: titleReveal 0.75s ease forwards 2.45s;
+  overflow: hidden;
+}
 
-     /* 左から走る光 */
-     .hero-title span::before {
-       content: "";
-       position: absolute;
-       left: -120%;
-       bottom: 0;
-       width: 120%;
-       height: 2px;
-       background: linear-gradient(90deg,
-           transparent,
-           white,
-           lightblue,
-           transparent);
-       box-shadow: 0 0 14px lightblue;
-       animation: lightLine 1.1s ease forwards;
-     }
+/* 残る下線 */
+.hero-title span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      lightblue,
+      white,
+      lightblue,
+      transparent);
+  box-shadow: 0 0 10px lightblue;
+  opacity: 0;
+  animation: underlineShow 0.4s ease forwards 2.15s;
+}
 
-     @keyframes lightLine {
-       from {
-         left: -120%;
-       }
+/* 先に走る下線の光 */
+.hero-title span::before {
+  content: "";
+  position: absolute;
+  right: -120%;
+  bottom: 0;
+  width: 120%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      white,
+      lightblue,
+      transparent);
+  box-shadow: 0 0 14px lightblue;
+  animation: lightLineReverse 0.95s ease forwards 1.35s;
+}
 
-       to {
-         left: 120%;
-       }
-     }
+/* 彗星の光 */
+.hero-title::before {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: -30%;
+  width: 34%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(173, 216, 230, 0.6),
+      white,
+      rgba(173, 216, 230, 0.7),
+      transparent);
+  box-shadow:
+    0 0 10px white,
+    0 0 18px lightblue,
+    0 0 28px rgba(173, 216, 230, 0.8);
+  opacity: 0;
+  transform: translateY(-50%) rotate(-2deg);
+  animation: cometPass 0.9s ease forwards 2.05s;
+  pointer-events: none;
+}
+.hero-no-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  padding: 0 24px;
+  text-align: center;
+  overflow: hidden;
+}
 
-     @keyframes titleFade {
-       from {
-         opacity: 0;
-         transform: translateX(-24px);
-       }
+.hero-text {
+  line-height: 1.7;
+  max-width: 560px;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.7s ease forwards 3.15s;
+}
 
-       to {
-         opacity: 1;
-         transform: translateX(0);
-       }
-     }
+.hero-button {
+  display: inline-block;
+  margin-top: 16px;
+  background-color: rgba(255, 255, 255, 0.18);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.7s ease forwards 3.45s;
+}
 
-     @keyframes underlineShow {
-       from {
-         opacity: 0;
-       }
+.hero-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #030783;
+  transform: translateY(0) scale(1.05);
+  box-shadow: 0 0 14px lightblue;
+}
 
-       to {
-         opacity: 0.85;
-       }
-     }
+/* =========================
+   Hero Animation
+========================= */
 
-     .hero-text {
-       line-height: 1.7;
-       max-width: 560px;
-     }
+/* 下線の光：右から左 */
+@keyframes lightLineReverse {
+  from {
+    right: -120%;
+  }
 
-     .hero-button {
-       display: inline-block;
-       margin-top: 16px;
-       background-color: rgba(255, 255, 255, 0.18);
-       color: white;
-       padding: 12px 20px;
-       border-radius: 999px;
-       cursor: pointer;
-       transition: 0.3s;
-       text-decoration: none;
-       border: 1px solid rgba(255, 255, 255, 0.45);
-       backdrop-filter: blur(8px);
-     }
+  to {
+    right: 120%;
+  }
+}
 
-     .hero-button:hover {
-       background-color: rgba(255, 255, 255, 0.9);
-       color: #030783;
-       transform: scale(1.05);
-       box-shadow: 0 0 14px lightblue;
-     }
+/* 残る下線 */
+@keyframes underlineShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.85;
+  }
+}
+
+/* 彗星が横切る */
+@keyframes cometPass {
+  0% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+}
+
+/* コピー文が横方向に現れる */
+@keyframes titleReveal {
+  from {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    text-shadow: 0 0 0 rgba(173, 216, 230, 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    text-shadow: 0 0 12px rgba(173, 216, 230, 0.45);
+  }
+}
+
+/* 説明文・ボタン用 */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Hero Curtain
+========================= */
+
+.hero-curtain {
+  --curtain-opacity: 0.24;
+  --curtain-width: 56vw;
+  --curtain-height: 120vh;
+  --curtain-blur: 0.8px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* カーテン本体 */
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  width: var(--curtain-width);
+  height: var(--curtain-height);
+
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.18) 8px,
+      rgba(255, 255, 255, 0.08) 18px,
+      rgba(255, 255, 255, 0.15) 34px),
+    linear-gradient(90deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, var(--curtain-opacity)),
+      rgba(255, 255, 255, 0.08));
+
+  backdrop-filter: blur(var(--curtain-blur));
+  -webkit-backdrop-filter: blur(var(--curtain-blur));
+
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.16),
+    0 0 20px rgba(220, 240, 255, 0.18);
+}
+
+/* 上の薄いレースっぽいライン */
+.curtain-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 42px;
+  width: 100%;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, 0.18) 0px,
+      rgba(255, 255, 255, 0.34) 12px,
+      rgba(255, 255, 255, 0.08) 24px);
+  opacity: 0.45;
+}
+
+/* 下の薄いベール感 */
+.curtain-panel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background:
+    radial-gradient(ellipse at bottom,
+      rgba(255, 255, 255, 0.25),
+      transparent 70%);
+  opacity: 0.35;
+}
+
+/* 左カーテン */
+.curtain-left {
+  left: 0;
+  transform-origin: left center;
+  animation: curtainLeftOpen 2.2s linear forwards 0.25s;
+}
+
+/* 右カーテン */
+.curtain-right {
+  right: 0;
+  transform-origin: right center;
+  animation: curtainRightOpen 2.2s linear forwards 0.25s;
+}
+
+@keyframes curtainLeftOpen {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-140%);
+  }
+}
+
+@keyframes curtainRightOpen {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(140%);
+  }
+}
 
 
-     /* =========================
+/* =========================
+   Hero Lights
+========================= */
+
+.hanging-light {
+  position: absolute;
+  top: -8px;
+  opacity: 0;
+  transform: translateY(-120px);
+  animation: lightDrop 0.75s ease forwards;
+  z-index: 2;
+}
+
+.light-swing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+}
+
+.light-cord {
+  display: block;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.28),
+    0 0 12px rgba(173, 216, 230, 0.32);
+}
+
+.light-image {
+  display: block;
+  object-fit: contain;
+  opacity: 0.96;
+}
+
+/* 小さい電球 */
+.light-bulb-image {
+  width: 30px;
+  height: 30px;
+  transform: rotate(180deg);
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 12px rgba(173, 216, 230, 0.42));
+}
+
+/* 小さい星 */
+.light-star-image {
+  width: 38px;
+  height: 38px;
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.34)) drop-shadow(0 0 12px rgba(173, 216, 230, 0.42));
+}
+
+/* 丸い小ライト */
+.round-light {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.9;
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.75),
+    0 0 16px rgba(173, 216, 230, 0.48),
+    0 0 26px rgba(173, 216, 230, 0.22);
+}
+
+/* 真ん中の大星 */
+.main-star-image {
+  margin-top: -35px;
+  width: 132px;
+  height: 132px;
+  opacity: 0.98;
+  filter:
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 18px rgba(255, 255, 255, 0.52)) drop-shadow(0 0 32px rgba(173, 216, 230, 0.46))
+    drop-shadow(1px 0 0 rgba(255, 255, 255, 0.9));
+}
+
+/* 大星の発光：大星の真後ろだけ */
+.main-light .light-swing::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 215px;
+  width: 130px;
+  height: 130px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.34) 0%,
+      rgba(255, 255, 255, 0.18) 30%,
+      rgba(173, 216, 230, 0.18) 55%,
+      rgba(173, 216, 230, 0) 78%);
+  filter: blur(50px);
+  z-index: -1;
+}
+
+/* 1個目：左の星 */
+.light-1 {
+  left: 25%;
+  animation-delay: 0.55s;
+}
+
+.light-1 .light-cord {
+  height: 150px;
+}
+
+.light-1 .light-swing {
+  animation: swingA 3.4s ease-in-out infinite 1.2s;
+}
+
+/* 2個目：左の電球 */
+.light-2 {
+  left: 35%;
+  animation-delay: 0.7s;
+}
+
+.light-2 .light-cord {
+  height: 200px;
+}
+
+.light-2 .light-swing {
+  animation: swingB 3.1s ease-in-out infinite 1.35s;
+}
+
+/* 3個目：左寄りの丸ライト */
+.light-3 {
+  left: 40%;
+  animation-delay: 0.74s;
+}
+
+.light-3 .light-cord {
+  height: 120px;
+}
+
+.light-3 .light-swing {
+  animation: swingC 3.6s ease-in-out infinite 1.4s;
+}
+
+/* 4個目：真ん中の大星 */
+.light-4 {
+  left: calc(50% - 66px);
+  animation-delay: 0.62s;
+  z-index: 5;
+}
+
+.light-4 .light-cord {
+  height: 250px;
+}
+
+.light-4 .light-swing {
+  animation: swingMain 4.2s ease-in-out infinite 1.25s;
+}
+
+/* 5個目：右寄りの丸ライト */
+.light-5 {
+  right: 40%;
+  animation-delay: 0.86s;
+}
+
+.light-5 .light-cord {
+  height: 130px;
+}
+
+.light-5 .light-swing {
+  animation: swingD 3.8s ease-in-out infinite 1.45s;
+}
+
+/* 6個目：右の星 */
+.light-6 {
+  right: 35%;
+  animation-delay: 0.8s;
+}
+
+.light-6 .light-cord {
+  height: 130px;
+}
+
+.light-6 .light-swing {
+  animation: swingE 3.25s ease-in-out infinite 1.45s;
+}
+
+/* 7個目：右の電球 */
+.light-7 {
+  right: 25%;
+  animation-delay: 0.66s;
+}
+
+.light-7 .light-cord {
+  height: 170px;
+}
+
+.light-7 .light-swing {
+  animation: swingF 3.8s ease-in-out infinite 1.3s;
+}
+
+.moon-decoration {
+  position: absolute;
+  top: -130px;
+  left: 50%;
+  width: 300px;
+  transform: translateX(-50%);
+  opacity: 0.18;
+  z-index: 1;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.46)) drop-shadow(0 0 36px rgba(173, 216, 230, 0.12))
+    drop-shadow(0.5px 0 0 rgba(255, 255, 255, 0.9));
+}
+
+
+@keyframes lightDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 電飾の揺れ：1 */
+@keyframes swingA {
+
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+/* 電飾の揺れ：2 */
+@keyframes swingB {
+
+  0%,
+  100% {
+    transform: rotate(2deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+/* 丸ライト：1 */
+@keyframes swingC {
+
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* 真ん中の大星：少しゆっくり控えめに揺れる */
+@keyframes swingMain {
+
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* 丸ライト：2 */
+@keyframes swingD {
+
+  0%,
+  100% {
+    transform: rotate(1.4deg);
+  }
+
+  50% {
+    transform: rotate(-1.8deg);
+  }
+}
+
+/* 電飾の揺れ：星 */
+@keyframes swingE {
+
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* 電飾の揺れ：電球 */
+@keyframes swingF {
+
+  0%,
+  100% {
+    transform: rotate(3deg);
+  }
+
+  50% {
+    transform: rotate(-4deg);
+  }
+}
+
+
+
+
+
+/* =========================
    About
 ========================= */
 
-     .about {
-       padding: 80px 24px;
-     }
+.about {
+  padding: 80px 24px;
+}
 
-     .about-card {
-       max-width: 720px;
-       margin: 0 auto;
-       padding: 32px;
-       background-color: rgba(255, 255, 255, 0.86);
-       color: #030783;
-       border-radius: 24px;
-       box-shadow: 0 0 24px rgba(173, 216, 230, 0.35);
-       backdrop-filter: blur(10px);
-     }
+.about-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: rgba(255, 255, 255, 0.86);
+  color: #030783;
+  border-radius: 24px;
+  box-shadow: 0 0 24px rgba(173, 216, 230, 0.35);
+  backdrop-filter: blur(10px);
+}
 
-     .about-card h2 {
-       font-size: 32px;
-       margin: 8px 0 16px;
-     }
+.about-card h2 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
 
-     .about-text {
-       line-height: 1.8;
-     }
+.about-text {
+  line-height: 1.8;
+}
 
-     .profile-list {
-       padding-left: 20px;
-       line-height: 1.8;
-     }
+.profile-list {
+  padding-left: 20px;
+  line-height: 1.8;
+}
 
-     /* =========================
+/* =========================
    Skills
 ========================= */
 
-     .skills {
-       padding: 80px 24px;
-       text-align: center;
-     }
+.skills {
+  padding: 80px 24px;
+  text-align: center;
+}
 
-     .skills h2 {
-       font-size: 32px;
-       margin: 8px 0 16px;
-     }
+.skills h2 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
 
-     .skills-text {
-       line-height: 1.8;
-       margin-bottom: 32px;
-     }
+.skills-text {
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
 
-     .skill-list {
-       max-width: 960px;
-       margin: 0 auto;
-       display: flex;
-       flex-wrap: wrap;
-       gap: 20px;
-       justify-content: center;
-     }
+.skill-list {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 
-     .skill-card {
-       width: 240px;
-       padding: 24px;
-       background-color: rgba(255, 255, 255, 0.86);
-       color: #030783;
-       border-radius: 24px;
-       box-shadow: 0 0 20px rgba(173, 216, 230, 0.28);
-       text-align: left;
-       transition: 0.3s;
-       backdrop-filter: blur(10px);
-     }
+.skill-card {
+  width: 240px;
+  padding: 24px;
+  background-color: rgba(255, 255, 255, 0.86);
+  color: #030783;
+  border-radius: 24px;
+  box-shadow: 0 0 20px rgba(173, 216, 230, 0.28);
+  text-align: left;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
 
-     .skill-card:hover {
-       transform: translateY(-4px);
-       box-shadow: 0 0 26px rgba(173, 216, 230, 0.8);
-     }
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 26px rgba(173, 216, 230, 0.8);
+}
 
-     .skill-card h3 {
-       margin-top: 0;
-     }
+.skill-card h3 {
+  margin-top: 0;
+}
 
-     .skill-card p {
-       line-height: 1.7;
-     }
+.skill-card p {
+  line-height: 1.7;
+}
 
-     /* =========================
+/* =========================
    Works
 ========================= */
 
-     .works {
-       padding: 80px 24px;
-       text-align: center;
-     }
+.works {
+  padding: 80px 24px;
+  text-align: center;
+}
 
-     .works h2 {
-       font-size: 32px;
-       margin: 8px 0 16px;
-     }
+.works h2 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
 
-     .works-text {
-       line-height: 1.8;
-       margin-bottom: 40px;
-     }
+.works-text {
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
 
-     .works-group-title {
-       margin: 40px 0 20px;
-       font-size: 22px;
-     }
+.works-group-title {
+  margin: 40px 0 20px;
+  font-size: 22px;
+}
 
-     .works-list {
-       max-width: 1040px;
-       margin: 0 auto;
-       display: flex;
-       flex-wrap: wrap;
-       gap: 24px;
-       justify-content: center;
-     }
+.works-list {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
 
-     .work-card {
-       width: 280px;
-       padding: 24px;
-       background-color: rgba(255, 255, 255, 0.88);
-       color: #030783;
-       border-radius: 24px;
-       box-shadow: 0 0 20px rgba(173, 216, 230, 0.3);
-       text-align: left;
-       transition: 0.3s;
-       backdrop-filter: blur(10px);
-     }
+.work-card {
+  width: 280px;
+  padding: 24px;
+  background-color: rgba(255, 255, 255, 0.88);
+  color: #030783;
+  border-radius: 24px;
+  box-shadow: 0 0 20px rgba(173, 216, 230, 0.3);
+  text-align: left;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
 
-     .work-card:hover {
-       transform: translateY(-4px);
-       box-shadow: 0 0 26px rgba(173, 216, 230, 0.85);
-     }
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 26px rgba(173, 216, 230, 0.85);
+}
 
-     .work-category {
-       font-size: 13px;
-       letter-spacing: 1px;
-       opacity: 0.7;
-     }
+.work-category {
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
 
-     .work-card h3 {
-       margin: 8px 0 12px;
-     }
+.work-card h3 {
+  margin: 8px 0 12px;
+}
 
-     .work-card p {
-       line-height: 1.7;
-     }
+.work-card p {
+  line-height: 1.7;
+}
 
-     .work-card a {
-       display: inline-block;
-       margin-top: 12px;
-       padding: 10px 16px;
-       background-color: rgba(255, 255, 255, 0.65);
-       color: #030783;
-       border-radius: 999px;
-       text-decoration: none;
-       transition: 0.3s;
-       border: 1px solid rgba(3, 7, 131, 0.18);
-     }
+.work-card a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: rgba(255, 255, 255, 0.65);
+  color: #030783;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid rgba(3, 7, 131, 0.18);
+}
 
-     .work-card a:hover {
-       background-color: #030783;
-       color: white;
-       box-shadow: 0 0 10px lightblue;
-     }
+.work-card a:hover {
+  background-color: #030783;
+  color: white;
+  box-shadow: 0 0 10px lightblue;
+}
 
-     .coming-soon {
-       opacity: 0.85;
-     }
+.coming-soon {
+  opacity: 0.85;
+}
 
-     /* =========================
+/* =========================
    Portfolio
 ========================= */
 
-     .portfolio-link {
-       padding: 80px 24px;
-       text-align: center;
-     }
+.portfolio-link {
+  padding: 80px 24px;
+  text-align: center;
+}
 
-     .portfolio-link h2 {
-       font-size: 32px;
-       margin: 8px 0 16px;
-     }
+.portfolio-link h2 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
 
-     .portfolio-link p {
-       line-height: 1.8;
-     }
+.portfolio-link p {
+  line-height: 1.8;
+}
 
-     .portfolio-link a {
-       display: inline-block;
-       margin: 12px 8px 0;
-       padding: 10px 18px;
-       border-radius: 999px;
-       text-decoration: none;
-       transition: 0.3s;
-       background-color: rgba(255, 255, 255, 0.86);
-       color: #030783;
-       border: 1px solid rgba(255, 255, 255, 0.45);
-     }
+.portfolio-link a {
+  display: inline-block;
+  margin: 12px 8px 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.86);
+  color: #030783;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
 
-     .portfolio-link a:hover {
-       transform: scale(1.05);
-       box-shadow: 0 0 14px lightblue;
-     }
+.portfolio-link a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px lightblue;
+}
 
-     /* =========================
+/* =========================
    Contact
 ========================= */
 
-     .contact {
-       min-height: 80vh;
-       padding: 120px 24px 120px;
-       box-sizing: border-box;
-       text-align: center;
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-     }
+.contact {
+  min-height: 80vh;
+  padding: 120px 24px 120px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-     .contact h2 {
-       font-size: 32px;
-       margin: 8px 0 16px;
-     }
+.contact h2 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
 
-     .contact p {
-       line-height: 1.8;
-       max-width: 720px;
-     }
+.contact p {
+  line-height: 1.8;
+  max-width: 720px;
+}
 
-     .contact-buttons {
-       margin-top: 12px;
-     }
+.contact-buttons {
+  margin-top: 12px;
+}
 
-     .contact-buttons a {
-       display: inline-block;
-       margin: 12px 8px 0;
-       padding: 10px 18px;
-       border-radius: 999px;
-       text-decoration: none;
-       transition: 0.3s;
-       background-color: rgba(255, 255, 255, 0.86);
-       color: #030783;
-       border: 1px solid rgba(255, 255, 255, 0.45);
-     }
+.contact-buttons a {
+  display: inline-block;
+  margin: 12px 8px 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.86);
+  color: #030783;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
 
-     .contact-buttons a:hover {
-       transform: scale(1.05);
-       box-shadow: 0 0 14px lightblue;
-     }
+.contact-buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px lightblue;
+}
 
-     .request-area {
-       margin-top: 32px;
-       text-align: center;
-     }
+.request-area {
+  margin-top: 32px;
+  text-align: center;
+}
 
-     .request-title {
-       margin: 0 0 8px;
-       font-weight: bold;
-       letter-spacing: 1px;
-       color: white;
-     }
+.request-title {
+  margin: 0 0 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+}
 
-     .sns-buttons {
-       display: flex;
-       justify-content: center;
-       gap: 16px;
-       flex-wrap: wrap;
-     }
+.sns-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-     .sns-buttons a {
-       display: inline-block;
-       margin-top: 12px;
-       padding: 10px 18px;
-       border-radius: 999px;
-       text-decoration: none;
-       transition: 0.3s;
-       background-color: rgba(255, 255, 255, 0.95);
-       color: #030783;
-       border: 1px solid rgba(255, 255, 255, 0.45);
-       box-shadow: 0 0 14px rgba(173, 216, 230, 0.7);
-     }
+.sns-buttons a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #030783;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 14px rgba(173, 216, 230, 0.7);
+}
 
-     .sns-buttons a:hover {
-       transform: scale(1.05);
-       box-shadow: 0 0 14px lightblue;
-     }
+.sns-buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px lightblue;
+}
+
+.top-guide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 24px;
+  text-align: center;
+  justify-content: center;
+}
+
+.top-guide h2 {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
+
+.top-guide-text {
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.top-guide-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.top-guide-buttons a {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #030783;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 14px rgba(173, 216, 230, 0.45);
+}
+
+.top-guide-buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px lightblue;
+}
