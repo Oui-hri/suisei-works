@@ -1,0 +1,24 @@
+/* =========================
+   Common Section Layout
+========================= */
+
+.section {
+  position: relative;
+  padding: 110px 8%;
+  box-sizing: border-box;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 34px;
+  margin: 8px 0 18px;
+}
+
+.section p {
+  line-height: 1.8;
+}

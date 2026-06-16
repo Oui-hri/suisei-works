@@ -1,129 +1,731 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>ポートフォリオ</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
-</head>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Suisei Works</title>
+    <link rel="stylesheet" href="css/common.css" />
 
-<body>
-  <video class="site-bg" autoplay muted loop playsinline>
-    <source src="夜空.mp4" type="video/mp4">
-  </video>
+    <link rel="stylesheet" href="css/index/layout.css" />
+    <link rel="stylesheet" href="css/index/hero.css" />
+    <link rel="stylesheet" href="css/index/concept.css" />
+    <link rel="stylesheet" href="css/index/service.css" />
+    <link rel="stylesheet" href="css/index/works-preview.css" />
+    <link rel="stylesheet" href="css/index/profile.css" />
+    <link rel="stylesheet" href="css/index/request-guide.css" />
+    <link rel="stylesheet" href="css/index/contact.css" />
+    <link rel="stylesheet" href="css/index/responsive.css" />
+  </head>
 
-  <header>
-    <h1>Suisei Works</h1>
-    <!--メニューやリンクをまとめる-->
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="works.html">Works</a>
-      <a href="about.html#contact">Contact</a>
-    </nav>
-  </header>
+  <body>
+    <video class="site-bg" autoplay muted loop playsinline>
+      <source src="夜空.mp4" type="video/mp4" />
+    </video>
 
-  <section class="hero">
-    <div class="hero-curtain" aria-hidden="true">
-      <div class="curtain-panel curtain-left"></div>
-      <div class="curtain-panel curtain-right"></div>
-    </div>
+    <header>
+      <h1>Suisei Works</h1>
 
-    <div class="hero-lights" aria-hidden="true">
-      <img src="images/moon-decoration.png" alt="" class="moon-decoration">
+      <nav class="menu">
+        <a href="#home">Home</a>
+        <a href="#skills">Service</a>
+        <a href="works.html">Works</a>
+        <a href="#profile">About</a>
+        <a href="#request-guide">Guide</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-      <div class="hanging-light light-1">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <img src="images/light-star.png" alt="" class="light-image light-star-image">
+    <main>
+      <!-- =========================
+         First View
+    ========================= -->
+      <section id="home" class="hero">
+        <div class="hero-curtain" aria-hidden="true">
+          <div class="curtain-panel curtain-left"></div>
+          <div class="curtain-panel curtain-right"></div>
         </div>
-      </div>
 
-      <div class="hanging-light light-2">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <img src="images/light-bulb.png" alt="" class="light-image light-bulb-image">
-        </div>
-      </div>
+        <div class="hero-lights" aria-hidden="true">
+          <img
+            src="images/moon-decoration.png"
+            alt=""
+            class="moon-decoration"
+          />
 
-      <div class="hanging-light light-3">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <span class="round-light"></span>
-        </div>
-      </div>
+          <div class="hanging-light light-1">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <img
+                src="images/light-star.png"
+                alt=""
+                class="light-image light-star-image"
+              />
+            </div>
+          </div>
 
-      <div class="hanging-light light-4 main-light">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <img src="images/main-star-light.png" alt="" class="light-image main-star-image">
-        </div>
-      </div>
+          <div class="hanging-light light-2">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <img
+                src="images/light-bulb.png"
+                alt=""
+                class="light-image light-bulb-image"
+              />
+            </div>
+          </div>
 
-      <div class="hanging-light light-5">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <span class="round-light"></span>
-        </div>
-      </div>
+          <div class="hanging-light light-3">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <span class="round-light"></span>
+            </div>
+          </div>
 
-      <div class="hanging-light light-6">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <img src="images/light-star.png" alt="" class="light-image light-star-image">
-        </div>
-      </div>
+          <div class="hanging-light light-4 main-light">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <img
+                src="images/main-star-light.png"
+                alt=""
+                class="light-image main-star-image"
+              />
+            </div>
+          </div>
 
-      <div class="hanging-light light-7">
-        <div class="light-swing">
-          <span class="light-cord"></span>
-          <img src="images/light-bulb.png" alt="" class="light-image light-bulb-image">
-        </div>
-      </div>
-    </div>
+          <div class="hanging-light light-5">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <span class="round-light"></span>
+            </div>
+          </div>
 
-    <div class="hero-content">
-      <p class="hero-label">Suisei Works</p>
+          <div class="hanging-light light-6">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <img
+                src="images/light-star.png"
+                alt=""
+                class="light-image light-star-image"
+              />
+            </div>
+          </div>
 
-      <h2 class="hero-title">
-          <span>青く澄んだ世界観で、伝わる表現を。</span>
-        </h2>
-  </section>
-  <section class="hero-no-text fade-in">
-    <div class="hero naiyou">
-          <p class="hero-text">
-                    動画編集・デザイン・イラストを通して、<br>
-                    見る人に届くビジュアルを形にしています。
-                  </p>
-
-          <a class="hero-button" href="works.html">Worksを見る</a>
+          <div class="hanging-light light-7">
+            <div class="light-swing">
+              <span class="light-cord"></span>
+              <img
+                src="images/light-bulb.png"
+                alt=""
+                class="light-image light-bulb-image"
+              />
+            </div>
           </div>
         </div>
 
-  </section>
+        <div class="hero-content">
+          <p class="hero-label">Suisei Works</p>
 
-  <section class="top-guide fade-in">
-    <p class="section-label fade-in">
-        Next
-      </p>
-    <h2>
-        制作内容をもっとみる
-      </h2>
-    <p class="top-guide-text">
-        動画編集・デザイン・イラスト・Web制作など、<br>
-        制作した作品や使用ソフト、プロフィールをまとめています。
-      </p>
+          <h2 class="hero-title">
+            <span>青く澄んだ世界観で、伝わる表現を。</span>
+          </h2>
+        </div>
+      </section>
 
-    <div class="top-guide-buttons">
-      <a href="works.html">
-        Worksを見る
-      </a>
-      <a href="about.html">
-        Aboutを見る
-      </a>
-    </div>
-  </section>
+      <section class="hero-no-text fade-in">
+        <div class="hero-naiyou">
+          <p class="hero-text">
+            動画編集・デザイン・イラスト・Web制作を通して、<br />
+            見る人に届くビジュアルを形にしています。
+          </p>
 
-  <script src="js/common.js"></script>
-</body>
+          <a class="hero-button" href="works.html">Worksを見る</a>
+        </div>
+      </section>
+
+      <!-- =========================
+         Concept
+    ========================= -->
+      <section id="concept" class="concept section fade-in">
+        <div class="section-inner concept-layout">
+          <div class="concept-text">
+            <p class="section-label">Concept</p>
+            <h2>透明感のある世界観と、伝わる構成を大切に。</h2>
+
+            <p>
+              青や宇宙、水のような澄んだ雰囲気を大切にしながら、
+              動画・デザイン・イラスト・Web制作など、媒体に合わせた表現を制作しています。
+            </p>
+
+            <p>
+              見た目のかわいさだけでなく、見る人に内容が伝わる構成や、
+              作品ごとの空気感が伝わるビジュアルづくりを意識しています。
+            </p>
+          </div>
+
+          <div class="concept-decoration" aria-hidden="true">
+            <div class="concept-moon"></div>
+            <div class="concept-line"></div>
+            <p>Moon / Star / Water</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+     Service
+     いて座モチーフのスキル星座
+========================= -->
+      <section id="skills" class="skills section fade-in constellation-trigger">
+        <div class="section-inner">
+          <div class="skills-heading">
+            <p class="section-label">Service</p>
+            <h2>できること</h2>
+
+            <p class="skills-text">
+              青や透明感のある表現を大切にしながら、<br />
+              目的や媒体に合わせた制作を行っています。
+            </p>
+          </div>
+
+          <div class="skills-constellation" aria-label="できること一覧">
+            <!-- いて座モチーフの星座ライン：参考画像寄せ -->
+            <svg class="skill-lines" viewBox="0 0 1000 760" aria-hidden="true">
+              <!-- 左上から中央、右上へ伸びる主線 -->
+              <path
+                class="skill-line line-main"
+                d="M210 260 L320 215 L410 245 L590 200"
+              />
+
+              <!-- 左上の小さい三角形 -->
+              <path
+                class="skill-line line-left-triangle"
+                d="M210 260 L245 345 L410 245"
+              />
+
+              <!-- 左下へ長く落ちる線 -->
+              <path
+                class="skill-line line-left-tail"
+                d="M245 345 L160 565 L195 690"
+              />
+
+              <!-- 右上へ伸びる線 -->
+              <path class="skill-line line-right-up" d="M590 200 L705 52" />
+
+              <!-- 右側へ枝分かれする線 -->
+              <path
+                class="skill-line line-right-branch"
+                d="M590 200 L670 340 L820 380"
+              />
+
+              <!-- 右下へ落ちる線 -->
+              <path
+                class="skill-line line-right-tail"
+                d="M670 340 L630 495 L690 585"
+              />
+
+              <!-- サービスに対応する星 -->
+              <circle class="skill-node node-video" cx="210" cy="260" r="6" />
+              <circle class="skill-node node-design" cx="410" cy="245" r="6" />
+              <circle
+                class="skill-node node-illustration"
+                cx="590"
+                cy="200"
+                r="6"
+              />
+              <circle class="skill-node node-web" cx="670" cy="340" r="6" />
+              <circle class="skill-node node-vtuber" cx="630" cy="495" r="6" />
+
+              <!-- 形を作るための星 -->
+              <circle class="skill-node sub-node" cx="320" cy="215" r="5" />
+              <circle class="skill-node sub-node" cx="245" cy="345" r="5" />
+              <circle class="skill-node sub-node" cx="160" cy="565" r="5" />
+              <circle class="skill-node sub-node" cx="195" cy="690" r="5" />
+              <circle class="skill-node sub-node" cx="705" cy="52" r="5" />
+              <circle class="skill-node sub-node" cx="820" cy="380" r="5" />
+              <circle class="skill-node sub-node" cx="690" cy="585" r="5" />
+            </svg>
+
+            <div
+              class="skill-constellation-card skill-card-video lace-card"
+              tabindex="0"
+            >
+              <span class="card-star" aria-hidden="true"></span>
+              <span class="lace-cover" aria-hidden="true"></span>
+
+              <span class="skill-number">01</span>
+              <p class="skill-category">Movie / Short Video</p>
+              <h3>Video Editing</h3>
+              <p>
+                ショート動画を中心に、テロップ・BGM・アニメーションを組み合わせた編集を行っています。
+              </p>
+              <p class="tool-text">Adobe Premiere Pro</p>
+            </div>
+
+            <div
+              class="skill-constellation-card skill-card-design lace-card"
+              tabindex="0"
+            >
+              <span class="card-star" aria-hidden="true"></span>
+              <span class="lace-cover" aria-hidden="true"></span>
+
+              <span class="skill-number">02</span>
+              <p class="skill-category">SNS / Banner</p>
+              <h3>Design</h3>
+              <p>
+                SNS投稿や資料デザインなど、目的に合わせたビジュアル制作を行っています。
+              </p>
+              <p class="tool-text">Canva</p>
+            </div>
+
+            <div
+              class="skill-constellation-card skill-card-illustration lace-card"
+              tabindex="0"
+            >
+              <span class="card-star" aria-hidden="true"></span>
+              <span class="lace-cover" aria-hidden="true"></span>
+
+              <span class="skill-number">03</span>
+              <p class="skill-category">Icon / Character</p>
+              <h3>Illustration</h3>
+              <p>
+                SNSアイコンやキャラクターイラストなど、雰囲気に合わせたイラスト制作を行っています。
+              </p>
+              <p class="tool-text">CLIP STUDIO PAINT</p>
+            </div>
+
+            <div
+              class="skill-constellation-card skill-card-web lace-card"
+              tabindex="0"
+            >
+              <span class="card-star" aria-hidden="true"></span>
+              <span class="lace-cover" aria-hidden="true"></span>
+
+              <span class="skill-number">04</span>
+              <p class="skill-category">HTML / CSS / JavaScript</p>
+              <h3>Web Design</h3>
+              <p>
+                HTML / CSS /
+                JavaScriptを用いて、ポートフォリオサイトなどのWeb制作に取り組んでいます。
+              </p>
+              <p class="tool-text">HTML / CSS / JavaScript</p>
+            </div>
+
+            <div
+              class="skill-constellation-card skill-card-vtuber lace-card"
+              tabindex="0"
+            >
+              <span class="card-star" aria-hidden="true"></span>
+              <span class="lace-cover" aria-hidden="true"></span>
+
+              <span class="skill-number">05</span>
+              <p class="skill-category">Character / Live2D</p>
+              <h3>VTuber 2D</h3>
+              <p>
+                キャラクターデザインからLive2Dモデル制作まで対応できるよう制作中です。
+              </p>
+              <p class="tool-text">CLIP STUDIO PAINT / Live2D Cubism</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+   Works Entrance
+   作品ごとのギャラリー入口
+========================= -->
+      <section id="works-preview" class="works-preview section fade-in">
+        <div class="section-inner">
+          <div class="works-preview-heading">
+            <p class="section-label">Works</p>
+            <h2>制作実績</h2>
+
+            <p class="works-text">
+              制作した作品を、ひとつずつご覧いただけます。
+            </p>
+          </div>
+
+          <div class="works-image-grid">
+            <a href="work-starry-video.html" class="work-image-card">
+              <img src="images/web-site-top.jpg" alt="星空絶景スポット3選" />
+
+              <div class="work-image-caption">
+                <p>Video Editing</p>
+                <h3>星空絶景スポット3選</h3>
+              </div>
+            </a>
+
+            <a href="work-cafe-menu.html" class="work-image-card">
+              <img
+                src="images/cafe-menu-cover.png"
+                alt="カフェの季節限定メニュー紹介"
+              />
+
+              <div class="work-image-caption">
+                <p>Design</p>
+                <h3>カフェの季節限定メニュー紹介</h3>
+              </div>
+            </a>
+
+            <a href="work-sns-icon.html" class="work-image-card">
+              <img src="images/icon.jpg" alt="SNSアイコン制作" />
+
+              <div class="work-image-caption">
+                <p>Illustration</p>
+                <h3>SNSアイコン制作</h3>
+              </div>
+            </a>
+
+            <a href="work-suisei-works.html" class="work-image-card">
+              <img src="images/web-site-top.jpg" alt="Suisei Works" />
+
+              <div class="work-image-caption">
+                <p>Web Design</p>
+                <h3>Suisei Works</h3>
+              </div>
+            </a>
+
+            <a href="work-wordwolf.html" class="work-image-card">
+              <div class="work-image-placeholder">Word Wolf Online</div>
+
+              <div class="work-image-caption">
+                <p>Team Project</p>
+                <h3>Word Wolf Online</h3>
+              </div>
+            </a>
+
+            <a
+              href="work-vtuber.html"
+              class="work-image-card work-image-card-coming"
+            >
+              <div class="work-image-placeholder">Coming Soon</div>
+
+              <div class="work-image-caption">
+                <p>VTuber 2D</p>
+                <h3>Coming Soon</h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="works-page-button">
+            <a href="works.html">Works一覧を見る</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         Profile
+    ========================= -->
+      <section id="profile" class="profile section fade-in">
+        <div class="section-inner">
+          <div class="profile-card">
+            <div class="profile-image-area">
+              <img
+                src="images/icon.jpg"
+                alt="すいせいのアイコン"
+                class="profile-image"
+              />
+            </div>
+
+            <div class="profile-text">
+              <p class="section-label">About</p>
+              <h2>すいせい</h2>
+
+              <p>
+                理系分野で学んだ視点を活かしながら、動画編集・デザイン・イラストなどの制作に取り組んでいます。
+                青や宇宙、水のような透明感のある世界観を大切にしています。
+              </p>
+
+              <h3>Profile</h3>
+              <ul class="profile-list">
+                <li>
+                  動画編集 / デザイン制作 / イラスト制作に取り組んでいます
+                </li>
+                <li>
+                  HTML / CSS / JavaScriptを用いたポートフォリオサイトを制作
+                </li>
+                <li>青 / 宇宙 / 水 / 透明感のある世界観を大切に制作</li>
+                <li>
+                  見る人に伝わる構成や、作品ごとの雰囲気づくりを意識しています
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         Request Guide
+    ========================= -->
+      <section id="request-guide" class="request-guide section fade-in">
+        <div class="section-inner">
+          <p class="section-label">Request Guide</p>
+          <h2>ご依頼ガイド</h2>
+
+          <p class="guide-lead">
+            ご相談から納品までの流れや、制作期間の目安をまとめています。
+          </p>
+
+          <div class="guide-block">
+            <h3>ご依頼の流れ</h3>
+
+            <div class="flow-list">
+              <div class="flow-card">
+                <span class="flow-number">01</span>
+                <h4>ご相談</h4>
+                <p>制作したい内容やイメージについてお聞きします。</p>
+              </div>
+
+              <div class="flow-card">
+                <span class="flow-number">02</span>
+                <h4>内容確認</h4>
+                <p>使用目的・納期・参考イメージなどを確認します。</p>
+              </div>
+
+              <div class="flow-card">
+                <span class="flow-number">03</span>
+                <h4>制作</h4>
+                <p>ご相談内容に合わせて制作を進めます。</p>
+              </div>
+
+              <div class="flow-card">
+                <span class="flow-number">04</span>
+                <h4>確認・修正</h4>
+                <p>必要に応じて内容を調整します。</p>
+              </div>
+
+              <div class="flow-card">
+                <span class="flow-number">05</span>
+                <h4>納品</h4>
+                <p>完成後、用途に合わせた形式で納品します。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="guide-block">
+            <h3>制作期間の目安</h3>
+
+            <div class="schedule-list">
+              <div class="schedule-card">
+                <h4>動画編集</h4>
+                <div class="schedule-bar">
+                  <span style="width: 45%"></span>
+                </div>
+                <p>3日〜7日程度</p>
+              </div>
+
+              <div class="schedule-card">
+                <h4>デザイン制作</h4>
+                <div class="schedule-bar">
+                  <span style="width: 35%"></span>
+                </div>
+                <p>2日〜5日程度</p>
+              </div>
+
+              <div class="schedule-card">
+                <h4>イラスト制作</h4>
+                <div class="schedule-bar">
+                  <span style="width: 70%"></span>
+                </div>
+                <p>1〜2週間程度</p>
+              </div>
+
+              <div class="schedule-card">
+                <h4>Web制作</h4>
+                <div class="schedule-bar">
+                  <span style="width: 100%"></span>
+                </div>
+                <p>2週間〜1ヶ月程度</p>
+              </div>
+            </div>
+
+            <p class="guide-note">※内容や修正回数によって前後します。</p>
+          </div>
+
+          <div class="guide-block">
+            <h3>ご相談時にあると助かるもの</h3>
+
+            <ul class="guide-item-list">
+              <li>制作したいもの</li>
+              <li>使用目的</li>
+              <li>希望納期</li>
+              <li>参考イメージ</li>
+              <li>掲載先や使用媒体</li>
+              <li>ご予算感</li>
+            </ul>
+          </div>
+
+          <div class="guide-block">
+            <h3>納品形式の例</h3>
+
+            <div class="delivery-list">
+              <div class="delivery-card">
+                <h4>動画</h4>
+                <p>mp4</p>
+              </div>
+
+              <div class="delivery-card">
+                <h4>画像</h4>
+                <p>png / jpg</p>
+              </div>
+
+              <div class="delivery-card">
+                <h4>デザイン</h4>
+                <p>png / jpg / PDF</p>
+              </div>
+
+              <div class="delivery-card">
+                <h4>Web制作</h4>
+                <p>HTML / CSS / JavaScript</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="guide-block faq-block">
+            <h3>よくあるご質問</h3>
+
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary>まだ内容が決まっていなくても相談できますか？</summary>
+                <p>はい。イメージが固まっていない段階でもご相談可能です。</p>
+              </details>
+
+              <details class="faq-item">
+                <summary>修正は可能ですか？</summary>
+                <p>可能です。内容に応じて調整しながら進めます。</p>
+              </details>
+
+              <details class="faq-item">
+                <summary>納期はどれくらいですか？</summary>
+                <p>制作内容によって異なりますが、目安をもとにご案内します。</p>
+              </details>
+
+              <details class="faq-item">
+                <summary>素材がなくても依頼できますか？</summary>
+                <p>内容によって対応可能です。まずはお気軽にご相談ください。</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         Contact
+    ========================= -->
+      <section id="contact" class="contact section fade-in">
+        <div class="section-inner contact-layout">
+          <div class="contact-info">
+            <p class="section-label">Contact</p>
+            <h2>ご依頼・ご相談はこちらから</h2>
+
+            <img
+              src="images/icon.jpg"
+              alt="すいせいのアイコン"
+              class="contact-icon"
+            />
+
+            <p>
+              制作に関するご相談は、フォームまたはSNSよりお気軽にご連絡ください。
+              内容を確認後、返信用メールアドレス宛にご連絡いたします。
+            </p>
+
+            <p class="contact-note">
+              ご入力いただいた内容は、お問い合わせへの返信・確認のために使用します。
+            </p>
+
+            <div class="request-area">
+              <p class="request-title">SNSでのご相談</p>
+
+              <div class="sns-buttons">
+                <a
+                  href="https://x.com/comet_aqueous?s=21&t=s6ivhES5JN8CiOPnmUKwOw"
+                  target="_blank"
+                  >X（旧Twitter）</a
+                >
+                <a
+                  href="https://www.instagram.com/comet_aqueous?igsh=MWZ4cWE4b2Q2dGxoOA%3D%3D&utm_source=qr"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-buttons">
+              <a href="https://fori.io/suisei-aqueous00" target="_blank"
+                >外部ポートフォリオを見る</a
+              >
+            </div>
+          </div>
+
+          <div class="contact-form-area">
+            <details class="contact-form-accordion">
+              <summary>お問い合わせフォームを開く</summary>
+
+              <form class="contact-form" action="#" method="post">
+                <label>
+                  お名前
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="お名前を入力してください"
+                  />
+                </label>
+
+                <label>
+                  返信用メールアドレス
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="sample@example.com"
+                    required
+                  />
+                </label>
+
+                <label>
+                  希望する制作内容
+                  <select name="service">
+                    <option value="">選択してください</option>
+                    <option value="video">動画編集</option>
+                    <option value="design">デザイン制作</option>
+                    <option value="illustration">イラスト制作</option>
+                    <option value="web">Web制作</option>
+                    <option value="other">その他</option>
+                  </select>
+                </label>
+
+                <label>
+                  希望納期
+                  <input
+                    type="text"
+                    name="deadline"
+                    placeholder="例：〇月〇日頃まで"
+                  />
+                </label>
+
+                <label>
+                  参考イメージURL
+                  <input
+                    type="url"
+                    name="reference"
+                    placeholder="参考サイト・画像URLなど"
+                  />
+                </label>
+
+                <label>
+                  ご相談内容
+                  <textarea
+                    name="message"
+                    rows="6"
+                    placeholder="ご相談内容を入力してください"
+                    required
+                  ></textarea>
+                </label>
+
+                <button type="submit">送信する</button>
+              </form>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/common.js"></script>
+  </body>
 </html>

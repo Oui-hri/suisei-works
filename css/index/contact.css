@@ -1,0 +1,149 @@
+/* =========================
+   Contact
+========================= */
+
+.contact {
+  min-height: 90vh;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-icon {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 18px 0;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 0 16px rgba(255, 255, 255, 0.55),
+    0 0 26px rgba(173, 216, 230, 0.45);
+}
+
+.contact-note {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.request-area {
+  margin-top: 28px;
+}
+
+.request-title {
+  margin: 0 0 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.sns-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sns-buttons a,
+.contact-buttons a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #030783;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 14px rgba(173, 216, 230, 0.45);
+}
+
+.sns-buttons a:hover,
+.contact-buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px lightblue;
+}
+
+.contact-form-area {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.86);
+  color: #030783;
+  border-radius: 28px;
+  box-shadow: 0 0 24px rgba(173, 216, 230, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.contact-form-accordion summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  list-style: none;
+}
+
+.contact-form-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.contact-form-accordion summary::after {
+  content: "＋";
+  float: right;
+}
+
+.contact-form-accordion[open] summary::after {
+  content: "−";
+}
+
+.contact-form {
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(3, 7, 131, 0.18);
+  font: inherit;
+  color: #030783;
+  background-color: rgba(255, 255, 255, 0.84);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: start;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background-color: #030783;
+  color: white;
+  font: inherit;
+  transition: 0.3s;
+  box-shadow: 0 0 14px rgba(173, 216, 230, 0.35);
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px lightblue;
+}

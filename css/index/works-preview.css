@@ -1,0 +1,543 @@
+/* =========================
+   Works Preview
+   点から丸いカードへ出現
+========================= */
+
+#works-preview {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+}
+
+#works-preview .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+#works-preview .works-preview-heading {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+#works-preview .works-text {
+  line-height: 1.8;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* =========================
+   Grid
+========================= */
+
+#works-preview .works-image-grid {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* いったん全部同じ丸カードにする */
+#works-preview .work-image-card-large {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+/* =========================
+   Card Base
+========================= */
+
+#works-preview .work-image-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  overflow: visible;
+
+  text-decoration: none;
+  color: white;
+  isolation: isolate;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  pointer-events: none;
+
+  opacity: 1;
+  transform: scale(1);
+
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* 古いオーバーレイ類は無効化 */
+#works-preview .work-image-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  box-shadow:
+    0 0 0 rgba(255, 255, 255, 0),
+    0 0 0 rgba(120, 200, 255, 0);
+}
+
+/* =========================
+   Dot
+   最初は小さな点だけ見える
+========================= */
+
+#works-preview .work-image-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  transform-origin: center;
+
+  background: rgba(255, 255, 255, 0.96);
+  opacity: 1;
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.96),
+    0 0 20px rgba(210, 242, 255, 0.82),
+    0 0 42px rgba(120, 195, 255, 0.42);
+
+  pointer-events: none;
+}
+
+/* =========================
+   Image / Placeholder
+========================= */
+
+#works-preview .work-image-card img,
+#works-preview .work-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  /* 画像そのものに余計な加工をしない */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  opacity: 0;
+  transform: scale(0.08) rotate(-180deg);
+
+  animation: none;
+}
+
+#works-preview .work-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+/* =========================
+   Visible State
+========================= */
+
+#works-preview .work-image-card.is-visible {
+  pointer-events: auto;
+}
+
+#works-preview .work-image-card.is-visible::before {
+  animation: works-dot-burst 0.95s ease forwards;
+}
+
+#works-preview .work-image-card.is-visible::after {
+  animation: works-circle-glow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#works-preview .work-image-card.is-visible img,
+#works-preview .work-image-card.is-visible .work-image-placeholder {
+  opacity: 1;
+  animation: works-circle-open 1.02s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* =========================
+   Caption
+========================= */
+
+#works-preview .work-image-caption {
+  position: absolute;
+
+  /* 丸カードの内側に収めるため、左右と下を内側に寄せる */
+  left: 14%;
+  right: 14%;
+  bottom: 16%;
+
+  z-index: 3;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  text-align: center;
+
+  transition:
+    opacity 0.42s ease,
+    transform 0.42s ease;
+}
+
+#works-preview .work-image-card.is-visible .work-image-caption {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.58s;
+}
+
+#works-preview .work-image-caption p {
+  margin: 0 0 6px;
+
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: rgba(210, 242, 255, 0.95);
+  text-align: center;
+}
+
+#works-preview .work-image-caption h3 {
+  margin: 0;
+
+  color: white;
+  font-size: clamp(15px, 1.8vw, 21px);
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  text-align: center;
+
+  /* 長いタイトルでも2行までにして、丸からはみ出しにくくする */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  text-shadow:
+    0 0 10px rgba(120, 220, 255, 0.42),
+    0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+/* =========================
+   Hover
+========================= */
+
+/* hoverしたカード以外を少し引かせる */
+#works-preview
+  .works-image-grid:has(.work-image-card.is-visible:hover)
+  .work-image-card.is-visible:not(:hover) {
+  opacity: 0.42;
+  transform: scale(0.92);
+}
+
+/* hoverカードは少し前に出す */
+#works-preview .work-image-card.is-visible:hover {
+  opacity: 1;
+  transform: translateY(-8px) scale(1.03);
+
+  box-shadow:
+    0 0 22px rgba(205, 242, 255, 0.42),
+    0 0 50px rgba(125, 195, 255, 0.22),
+    0 0 80px rgba(75, 135, 255, 0.12);
+}
+
+#works-preview .work-image-card.is-visible:hover img {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+#works-preview .work-image-card.is-visible:hover .work-image-placeholder {
+  opacity: 0.92;
+  transform: scale(1.03);
+}
+
+#works-preview .work-image-card.is-visible:hover .work-image-caption {
+  transform: translateY(-4px);
+}
+
+/* =========================
+   Button
+========================= */
+
+#works-preview .works-page-button {
+  margin-top: 46px;
+  text-align: center;
+}
+
+#works-preview .works-page-button a {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(200, 240, 255, 0.42);
+
+  box-shadow:
+    0 0 18px rgba(120, 210, 255, 0.24),
+    inset 0 0 14px rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+}
+
+#works-preview .works-page-button a:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.22);
+
+  box-shadow:
+    0 0 24px rgba(150, 230, 255, 0.5),
+    0 0 56px rgba(70, 150, 255, 0.22);
+}
+
+/* =========================
+   Animation
+========================= */
+
+/* 点が少し回転しながら消える */
+@keyframes works-dot-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.4);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(180deg) scale(2);
+  }
+}
+
+/* 境界のぼかし発光 */
+@keyframes works-circle-glow {
+  0% {
+    opacity: 0;
+    box-shadow:
+      0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 rgba(120, 200, 255, 0);
+  }
+
+  60% {
+    opacity: 1;
+    box-shadow:
+      0 0 20px rgba(220, 248, 255, 0.42),
+      0 0 54px rgba(120, 195, 255, 0.22);
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 14px rgba(220, 248, 255, 0.24),
+      0 0 36px rgba(120, 195, 255, 0.12);
+  }
+}
+
+/* 丸いカードが半回転しながら出現 */
+@keyframes works-circle-open {
+  0% {
+    opacity: 0;
+    transform: scale(0.08) rotate(-180deg);
+  }
+
+  58% {
+    opacity: 1;
+    transform: scale(1.04) rotate(-18deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media screen and (max-width: 960px) {
+  #works-preview .works-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  #works-preview .works-image-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  #works-preview .work-image-caption {
+    left: 15%;
+    right: 15%;
+    bottom: 17%;
+  }
+}
+
+/* =========================
+   Works Preview Glow Adjust
+   丸カード境界をもっとぼかす
+========================= */
+
+/* 画像より後ろに、ぼかした光だけ置く */
+#works-preview .work-image-card::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  z-index: 0;
+
+  opacity: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(170, 225, 255, 0.18) 48%,
+    rgba(90, 160, 255, 0.12) 68%,
+    rgba(90, 160, 255, 0) 78%
+  );
+
+  filter: blur(12px);
+
+  box-shadow:
+    0 0 30px rgba(210, 245, 255, 0.34),
+    0 0 70px rgba(120, 195, 255, 0.2),
+    0 0 110px rgba(80, 140, 255, 0.1);
+}
+
+/* 画像と文字は光より前に置く */
+#works-preview .work-image-card img,
+#works-preview .work-image-placeholder {
+  position: relative;
+  z-index: 1;
+}
+
+#works-preview .work-image-caption {
+  z-index: 3;
+}
+
+/* 出現後の境界光 */
+#works-preview .work-image-card.is-visible::after {
+  opacity: 1;
+  animation: works-soft-circle-glow 1s ease forwards;
+}
+
+/* hover時は境界光を少し強める */
+#works-preview .work-image-card.is-visible:hover::after {
+  opacity: 1;
+  filter: blur(16px);
+
+  box-shadow:
+    0 0 38px rgba(220, 248, 255, 0.48),
+    0 0 88px rgba(120, 195, 255, 0.3),
+    0 0 130px rgba(80, 140, 255, 0.16);
+}
+
+@keyframes works-soft-circle-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+    filter: blur(6px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.03);
+    filter: blur(14px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(12px);
+  }
+}
+
+/* =========================
+   Works Preview Image Edge Blur Fix
+   丸の形を維持したまま、画像の円形境界だけをぼかす
+========================= */
+
+/* 外側の光は使わない */
+#works-preview .work-image-card::after {
+  content: none !important;
+}
+
+/* 丸カードは維持。画像の端だけmaskで背景になじませる */
+#works-preview .work-image-card img,
+#works-preview .work-image-placeholder {
+  border-radius: 50% !important;
+
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    #000 0%,
+    #000 58%,
+    rgba(0, 0, 0, 0.85) 66%,
+    rgba(0, 0, 0, 0.45) 76%,
+    rgba(0, 0, 0, 0.12) 84%,
+    transparent 90%
+  );
+
+  mask-image: radial-gradient(
+    circle at center,
+    #000 0%,
+    #000 58%,
+    rgba(0, 0, 0, 0.85) 66%,
+    rgba(0, 0, 0, 0.45) 76%,
+    rgba(0, 0, 0, 0.12) 84%,
+    transparent 90%
+  );
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}

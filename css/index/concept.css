@@ -1,0 +1,70 @@
+/* =========================
+   Concept
+========================= */
+
+.concept {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.concept-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.concept-text {
+  padding: 36px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 32px rgba(173, 216, 230, 0.16);
+}
+
+.concept-decoration {
+  min-height: 360px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0.95;
+}
+
+.concept-moon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.36),
+    inset -24px -8px 0 rgba(173, 216, 230, 0.18);
+}
+
+.concept-line {
+  position: absolute;
+  left: 18%;
+  bottom: 120px;
+  width: 72%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    white,
+    lightblue,
+    transparent
+  );
+  box-shadow: 0 0 14px lightblue;
+  transform: rotate(-12deg);
+}
+
+.concept-decoration p {
+  letter-spacing: 4px;
+  font-size: 13px;
+  opacity: 0.75;
+}

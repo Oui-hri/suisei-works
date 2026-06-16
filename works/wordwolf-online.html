@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Wolf Online | Suisei Works</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/work-detail.css" />
+  </head>
+
+  <body>
+    <video class="site-bg" autoplay muted loop playsinline>
+      <source src="../夜空.mp4" type="video/mp4" />
+    </video>
+
+    <header>
+      <h1>Suisei Works</h1>
+
+      <nav class="menu">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../works.html">Works</a>
+        <a href="../about.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="work-detail-hero fade-in">
+        <p class="section-label">Web Design / Coding</p>
+        <h2>Word Wolf Online</h2>
+        <p>オンラインで遊べるワードウルフゲームの制作です。</p>
+      </section>
+
+      <section class="work-detail-section fade-in">
+        <div class="work-detail-layout">
+          <div class="work-detail-media is-web-preview">
+            <div class="work-detail-site-preview">
+              <iframe
+                src="https://oui-hri.github.io/wordwolf-online/"
+                title="Word Wolf Online"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="work-detail-info">
+            <section class="detail-block">
+              <h3>Overview</h3>
+              <p>
+                オンラインで複数人が参加できるワードウルフゲームです。
+                ルーム作成・参加、待機画面、話し合い、投票、結果表示など、
+                ゲーム進行に必要な画面と動線を制作しました。
+              </p>
+            </section>
+
+            <section class="detail-block">
+              <h3>担当範囲</h3>
+              <ul>
+                <li>ルーム作成・参加機能</li>
+                <li>Firebase Realtime Database 連携</li>
+                <li>プレイヤー一覧の同期</li>
+                <li>ホスト判定</li>
+                <li>画面遷移の実装</li>
+                <li>UI調整</li>
+              </ul>
+            </section>
+
+            <section class="detail-block">
+              <h3>使用技術</h3>
+              <p>HTML / CSS / JavaScript / Firebase / GitHub Pages</p>
+            </section>
+
+            <section class="detail-block">
+              <h3>制作ポイント</h3>
+              <p>
+                Firebaseを使ってルーム情報やプレイヤー情報を同期し、
+                オンライン上で同じ進行状況を共有できるようにしました。
+                また、各画面の役割が分かりやすくなるように、
+                待機・話し合い・投票・結果の流れを整理しています。
+              </p>
+            </section>
+
+            <section class="detail-block">
+              <h3>URL</h3>
+
+              <div class="work-detail-links">
+                <a
+                  href="https://oui-hri.github.io/wordwolf-online/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  サイトを見る
+                </a>
+              </div>
+            </section>
+
+            <a href="../works.html" class="back-link">Works一覧へ戻る</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/common.js"></script>
+  </body>
+</html>

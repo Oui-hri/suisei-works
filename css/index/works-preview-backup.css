@@ -1,0 +1,404 @@
+/* =========================
+   Works Preview
+   作品ごとのギャラリー入口
+========================= */
+
+#works-preview {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+}
+
+#works-preview .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+#works-preview .works-preview-heading {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+#works-preview .works-text {
+  line-height: 1.8;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* =========================
+   Grid
+========================= */
+
+#works-preview .works-image-grid {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+#works-preview .work-image-card-large {
+  grid-row: auto;
+  grid-column: auto;
+}
+
+/* =========================
+   Card
+========================= */
+
+#works-preview .work-image-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  transform: translateY(28px) scale(0.98);
+  opacity: 1;
+
+  pointer-events: none;
+
+  animation: none;
+  filter: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+/* 古いオーバーレイ・斜め光を無効化 */
+#works-preview .work-image-card::after {
+  content: none;
+}
+
+/* =========================
+   Star
+========================= */
+
+#works-preview .work-image-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+
+  width: 12px;
+  height: 12px;
+
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+
+  background: white;
+
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 56%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 56%,
+    2% 35%,
+    39% 35%
+  );
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 18px rgba(190, 235, 255, 0.82),
+    0 0 34px rgba(120, 200, 255, 0.5);
+
+  pointer-events: none;
+}
+
+/* =========================
+   Image / Placeholder
+========================= */
+
+#works-preview .work-image-card img,
+#works-preview .work-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  border-radius: 30px;
+
+  opacity: 0;
+  transform: scale(0.94);
+
+  clip-path: inset(48% 48% 48% 48% round 30px);
+
+  filter: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  animation: none;
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#works-preview .work-image-card img {
+  object-fit: cover;
+}
+
+/* 画像なしカード */
+#works-preview .work-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.08);
+
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+/* =========================
+   Visible
+========================= */
+
+#works-preview .work-image-card.is-visible {
+  pointer-events: auto;
+
+  animation: worksCardFloat 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#works-preview .work-image-card.is-visible::before {
+  animation: worksStarBurst 0.8s ease forwards;
+}
+
+#works-preview .work-image-card.is-visible img,
+#works-preview .work-image-card.is-visible .work-image-placeholder {
+  opacity: 0.5;
+
+  animation: worksImageOpen 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+}
+
+/* =========================
+   Caption
+========================= */
+
+#works-preview .work-image-caption {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  z-index: 3;
+
+  opacity: 0;
+  transform: translateY(14px);
+
+  filter: none;
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+#works-preview .work-image-card.is-visible .work-image-caption {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.56s;
+}
+
+#works-preview .work-image-caption p {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(210, 242, 255, 0.95);
+}
+
+#works-preview .work-image-caption h3 {
+  margin: 0;
+  color: white;
+  font-size: clamp(17px, 2vw, 23px);
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+
+  text-shadow:
+    0 0 10px rgba(120, 220, 255, 0.42),
+    0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================
+   Hover
+========================= */
+
+#works-preview .work-image-card.is-visible:hover {
+  transform: translateY(-8px) scale(1.025);
+
+  box-shadow:
+    0 0 22px rgba(205, 242, 255, 0.48),
+    0 0 48px rgba(125, 195, 255, 0.28),
+    0 0 76px rgba(75, 135, 255, 0.14);
+}
+
+#works-preview .work-image-card.is-visible:hover img {
+  opacity: 1;
+  transform: scale(1.07);
+  filter: none;
+}
+
+#works-preview .work-image-card.is-visible:hover .work-image-placeholder {
+  opacity: 0.9;
+  transform: scale(1.04);
+  filter: none;
+}
+
+#works-preview .work-image-card.is-visible:hover .work-image-caption {
+  transform: translateY(-5px);
+}
+
+/* =========================
+   Button
+========================= */
+
+#works-preview .works-page-button {
+  margin-top: 42px;
+  text-align: center;
+}
+
+#works-preview .works-page-button a {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(200, 240, 255, 0.42);
+
+  box-shadow:
+    0 0 18px rgba(120, 210, 255, 0.24),
+    inset 0 0 14px rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+}
+
+#works-preview .works-page-button a:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.22);
+
+  box-shadow:
+    0 0 24px rgba(150, 230, 255, 0.5),
+    0 0 56px rgba(70, 150, 255, 0.22);
+}
+
+/* =========================
+   Animation
+========================= */
+
+@keyframes worksImageOpen {
+  0% {
+    clip-path: inset(48% 48% 48% 48% round 30px);
+    transform: scale(0.94);
+  }
+
+  45% {
+    clip-path: inset(20% 20% 20% 20% round 30px);
+    transform: scale(0.98);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0 round 30px);
+    transform: scale(1);
+  }
+}
+
+@keyframes worksStarBurst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+
+  22% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+
+  58% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25) rotate(18deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8) rotate(36deg);
+  }
+}
+
+@keyframes worksCardFloat {
+  0% {
+    transform: translateY(28px) scale(0.98);
+    box-shadow: none;
+  }
+
+  62% {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow:
+      0 0 24px rgba(215, 246, 255, 0.42),
+      0 0 54px rgba(125, 195, 255, 0.22),
+      0 0 84px rgba(75, 135, 255, 0.1);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 16px rgba(205, 242, 255, 0.24),
+      0 0 38px rgba(125, 195, 255, 0.12);
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media screen and (max-width: 960px) {
+  #works-preview .works-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  #works-preview .works-image-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  #works-preview .work-image-card,
+  #works-preview .work-image-card img,
+  #works-preview .work-image-placeholder {
+    border-radius: 28px;
+  }
+
+  #works-preview .work-image-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
