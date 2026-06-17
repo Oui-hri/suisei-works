@@ -6,71 +6,357 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
+  padding: 96px 24px;
+  box-sizing: border-box;
+}
+
+.profile .section-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
 }
 
 .profile-card {
+  position: relative;
+
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-  gap: 48px;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 56px;
   align-items: center;
 
-  padding: 42px;
-  background-color: rgba(255, 255, 255, 0.86);
-  color: #030783;
-  border-radius: 36px;
+  padding: 56px;
+  border-radius: 40px;
+  overflow: hidden;
+
+  background: linear-gradient(
+    180deg,
+    rgba(78, 86, 176, 0.34),
+    rgba(124, 144, 216, 0.18)
+  );
+  border: 1px solid rgba(220, 232, 255, 0.24);
+
   box-shadow:
-    0 0 28px rgba(173, 216, 230, 0.38),
-    inset 0 0 22px rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(12px);
+    0 0 28px rgba(170, 230, 255, 0.1),
+    0 10px 30px rgba(20, 40, 90, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.profile-card::before {
+  content: "";
+
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  z-index: 0;
+
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(170, 230, 255, 0.08),
+    transparent 68%
+  );
+
+  pointer-events: none;
 }
 
 .profile-image-area {
-  padding: 16px;
-  border-radius: 30px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.36),
-    rgba(173, 216, 230, 0.16)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow:
-    0 0 22px rgba(173, 216, 230, 0.28),
-    inset 0 0 18px rgba(255, 255, 255, 0.18);
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+
+  overflow: visible;
 }
 
 .profile-image {
+  position: relative;
+  z-index: 3;
+
   width: 100%;
-  display: block;
   aspect-ratio: 1 / 1;
+  display: block;
+
   object-fit: cover;
-  border-radius: 24px;
-  box-shadow: 0 0 26px rgba(173, 216, 230, 0.38);
+  border-radius: 28px;
+
+  box-shadow:
+    0 0 20px rgba(120, 210, 255, 0.16),
+    0 0 40px rgba(80, 150, 255, 0.1);
 }
 
+/* =========================
+   Orbit / Star / Comet
+========================= */
+
+.profile-orbit {
+  position: absolute;
+  z-index: 1;
+
+  border: 1px solid rgba(180, 220, 255, 0.18);
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  box-shadow: 0 0 10px rgba(120, 210, 255, 0.08);
+}
+
+.orbit-1 {
+  width: 108%;
+  height: 108%;
+  top: -4%;
+  left: -4%;
+  transform: rotate(-12deg);
+}
+
+.orbit-2 {
+  width: 122%;
+  height: 92%;
+  top: 5%;
+  left: -11%;
+  opacity: 0.72;
+  transform: rotate(18deg);
+}
+
+.profile-star {
+  position: absolute;
+  z-index: 4;
+
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: rgba(220, 235, 255, 0.88);
+
+  box-shadow:
+    0 0 6px rgba(220, 235, 255, 0.4),
+    0 0 12px rgba(120, 220, 255, 0.18);
+}
+
+.star-1 {
+  top: 9%;
+  right: -3%;
+}
+
+.star-2 {
+  left: -4%;
+  bottom: 16%;
+}
+
+.star-3 {
+  right: -8%;
+  bottom: 38%;
+}
+
+.profile-comet {
+  position: absolute;
+  z-index: 6;
+
+  right: -6%;
+  top: 22%;
+
+  width: 90px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(170, 225, 255, 0.34),
+    rgba(235, 245, 255, 0.88)
+  );
+
+  transform: rotate(-18deg);
+
+  box-shadow: 0 0 8px rgba(120, 220, 255, 0.18);
+}
+
+.profile-comet::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  top: 50%;
+
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  background: rgba(240, 247, 255, 0.92);
+
+  transform: translateY(-50%);
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.45),
+    0 0 12px rgba(120, 220, 255, 0.2);
+}
+
+/* =========================
+   Text
+========================= */
+
 .profile-text {
-  padding: 0;
-  background: none;
-  color: #030783;
-  border-radius: 0;
-  box-shadow: none;
-  backdrop-filter: none;
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  color: rgba(236, 242, 255, 0.92);
+}
+
+.profile .section-label {
+  color: rgba(210, 225, 255, 0.72);
+  letter-spacing: 0.18em;
 }
 
 .profile-text h2 {
-  font-size: 40px;
-  margin: 8px 0 22px;
+  margin: 12px 0 18px;
+  font-size: clamp(36px, 4vw, 52px);
+  letter-spacing: 0.08em;
+  color: #f4f8ff;
 }
 
-.profile-text h3 {
-  margin-top: 30px;
-  font-size: 22px;
+.profile-catch {
+  margin: 0 0 24px;
+
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  line-height: 1.8;
+
+  color: rgba(220, 235, 255, 0.96);
 }
 
 .profile-text p {
-  line-height: 1.9;
+  line-height: 1.95;
+  color: rgba(228, 236, 255, 0.88);
 }
 
-.profile-list {
-  padding-left: 20px;
-  line-height: 1.9;
+.profile-text h3 {
+  margin: 30px 0 18px;
+
+  font-size: 26px;
+  letter-spacing: 0.04em;
+
+  color: #f0f5ff;
+}
+
+/* =========================
+   Point Cards
+========================= */
+
+.profile-point-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.profile-point-card {
+  padding: 18px 18px 16px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(220, 235, 255, 0.22);
+
+  box-shadow:
+    0 0 14px rgba(120, 210, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.profile-point-card:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+    0 0 18px rgba(120, 210, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.profile-point-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(235, 242, 255, 0.9);
+}
+
+.profile-point-label {
+  margin-bottom: 8px !important;
+
+  font-size: 12px !important;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  color: rgba(205, 225, 255, 0.78);
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media screen and (max-width: 900px) {
+  .profile {
+    padding: 84px 20px;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 42px 30px;
+  }
+
+  .profile-image-area {
+    max-width: 320px;
+  }
+
+  .profile-text {
+    max-width: 100%;
+  }
+
+  .profile-point-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .profile {
+    padding: 72px 18px;
+  }
+
+  .profile-card {
+    padding: 34px 22px;
+    border-radius: 32px;
+  }
+
+  .profile-image-area {
+    max-width: 260px;
+  }
+
+  .profile-image {
+    border-radius: 24px;
+  }
+
+  .profile-text h2 {
+    font-size: 34px;
+  }
+
+  .profile-catch {
+    font-size: 17px;
+  }
+
+  .profile-point-card {
+    padding: 16px;
+  }
 }

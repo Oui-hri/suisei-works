@@ -6,12 +6,16 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 96px clamp(24px, 6vw, 96px);
+  box-sizing: border-box;
 }
 
 .concept-layout {
+  width: min(100%, 1180px);
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-  gap: 56px;
+  gap: 30px;
   align-items: center;
 }
 

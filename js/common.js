@@ -31,8 +31,8 @@ const fadeObserver = new IntersectionObserver((entries, observer) => {
     observer.unobserve(entry.target);
   });
 }, {
-  threshold: 0.35,
-  rootMargin: "0px 0px -12% 0px"
+  threshold: 0,
+  rootMargin: "0px 0px -10% 0px"
 });
 
 fadeElements.forEach((element) => {
@@ -82,6 +82,7 @@ constellationTriggers.forEach((element) => {
   constellationObserver.observe(element);
 });
 
+
 // =========================
 // Works Preview Animation
 // Worksセクションが見えたら、小さい星からカードを順番に表示
@@ -115,6 +116,7 @@ if (worksPreviewSection && worksPreviewCards.length > 0) {
 
   worksPreviewObserver.observe(worksPreviewSection);
 }
+
 
 // =========================
 // Work Detail Slider
