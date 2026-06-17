@@ -2,7 +2,7 @@
    Works Preview
    作品ごとのギャラリー入口
 ========================= */
-
+/*
 #works-preview {
   position: relative;
   overflow: hidden;
@@ -28,7 +28,7 @@
 /* =========================
    Grid
 ========================= */
-
+/*
 #works-preview .works-image-grid {
   width: min(1040px, 100%);
   margin: 0 auto;
@@ -46,7 +46,7 @@
 /* =========================
    Card
 ========================= */
-
+/*
 #works-preview .work-image-card {
   position: relative;
   display: block;
@@ -76,7 +76,7 @@
     box-shadow 0.45s ease;
 }
 
-/* 古いオーバーレイ・斜め光を無効化 */
+/* 古いオーバーレイ・斜め光を無効化
 #works-preview .work-image-card::after {
   content: none;
 }
@@ -84,7 +84,7 @@
 /* =========================
    Star
 ========================= */
-
+/*
 #works-preview .work-image-card::before {
   content: "";
   position: absolute;
@@ -124,7 +124,7 @@
 /* =========================
    Image / Placeholder
 ========================= */
-
+/*
 #works-preview .work-image-card img,
 #works-preview .work-image-placeholder {
   width: 100%;
@@ -153,7 +153,7 @@
   object-fit: cover;
 }
 
-/* 画像なしカード */
+/* 画像なしカード
 #works-preview .work-image-placeholder {
   display: flex;
   align-items: center;
@@ -171,7 +171,7 @@
 /* =========================
    Visible
 ========================= */
-
+/*
 #works-preview .work-image-card.is-visible {
   pointer-events: auto;
 
@@ -192,7 +192,7 @@
 /* =========================
    Caption
 ========================= */
-
+/*
 #works-preview .work-image-caption {
   position: absolute;
   left: 22px;
@@ -239,7 +239,7 @@
 /* =========================
    Hover
 ========================= */
-
+/*
 #works-preview .work-image-card.is-visible:hover {
   transform: translateY(-8px) scale(1.025);
 
@@ -268,7 +268,7 @@
 /* =========================
    Button
 ========================= */
-
+/*
 #works-preview .works-page-button {
   margin-top: 42px;
   text-align: center;
@@ -311,7 +311,7 @@
 /* =========================
    Animation
 ========================= */
-
+/*
 @keyframes worksImageOpen {
   0% {
     clip-path: inset(48% 48% 48% 48% round 30px);
@@ -376,7 +376,7 @@
 /* =========================
    Responsive
 ========================= */
-
+/*
 @media screen and (max-width: 960px) {
   #works-preview .works-image-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -115,3 +115,73 @@ if (worksPreviewSection && worksPreviewCards.length > 0) {
 
   worksPreviewObserver.observe(worksPreviewSection);
 }
+
+// =========================
+// Work Detail Slider
+// =========================
+
+const workSliders = document.querySelectorAll("[data-slider]");
+
+workSliders.forEach((slider) => {
+  const images = slider.querySelectorAll(".slider-image");
+  const dots = slider.querySelectorAll(".slider-dot");
+  const prevButton = slider.querySelector(".slider-prev");
+  const nextButton = slider.querySelector(".slider-next");
+
+  if (!images.length || !dots.length || !prevButton || !nextButton) {
+    return;
+  }
+
+  let currentIndex = 0;
+  let sliderTimer;
+
+  function showSlide(nextIndex) {
+    images[currentIndex].classList.remove("is-active");
+    dots[currentIndex].classList.remove("is-active");
+
+    currentIndex = (nextIndex + images.length) % images.length;
+
+    images[currentIndex].classList.add("is-active");
+    dots[currentIndex].classList.add("is-active");
+  }
+
+  function showNextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function startSlider() {
+    stopSlider();
+    sliderTimer = setInterval(showNextSlide, 4000);
+  }
+
+  function stopSlider() {
+    clearInterval(sliderTimer);
+  }
+
+  prevButton.addEventListener("click", () => {
+    stopSlider();
+    showSlide(currentIndex - 1);
+    startSlider();
+  });
+
+  nextButton.addEventListener("click", () => {
+    stopSlider();
+    showNextSlide();
+    startSlider();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopSlider();
+      showSlide(index);
+      startSlider();
+    });
+  });
+
+  slider.addEventListener("mouseenter", stopSlider);
+  slider.addEventListener("mouseleave", startSlider);
+  slider.addEventListener("focusin", stopSlider);
+  slider.addEventListener("focusout", startSlider);
+
+  startSlider();
+});

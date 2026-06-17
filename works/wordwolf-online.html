@@ -28,16 +28,18 @@
       <section class="work-detail-hero fade-in">
         <p class="section-label">Web Design / Coding</p>
         <h2>Word Wolf Online</h2>
-        <p>オンラインで遊べるワードウルフゲームの制作です。</p>
+        <p>
+          オンラインで複数人が参加できる、ワードウルフゲームのWebアプリ制作です。
+        </p>
       </section>
 
       <section class="work-detail-section fade-in">
-        <div class="work-detail-layout">
-          <div class="work-detail-media is-web-preview">
+        <div class="work-detail-layout work-detail-layout-site">
+          <div class="work-detail-media">
             <div class="work-detail-site-preview">
               <iframe
                 src="https://oui-hri.github.io/wordwolf-online/"
-                title="Word Wolf Online"
+                title="Word Wolf Online サイトプレビュー"
                 loading="lazy"
               ></iframe>
             </div>
@@ -48,51 +50,77 @@
               <h3>Overview</h3>
               <p>
                 オンラインで複数人が参加できるワードウルフゲームです。
-                ルーム作成・参加、待機画面、話し合い、投票、結果表示など、
-                ゲーム進行に必要な画面と動線を制作しました。
+                ルーム作成・参加、待機画面、話し合い、投票、結果表示など、ゲーム進行に必要な画面と動線を制作しました。
+              </p>
+              <p>
+                Firebase Realtime
+                Databaseを利用し、ルーム情報やプレイヤー情報をリアルタイムで同期できるようにしています。
+                複数人で同じ進行状況を共有しながら遊べるよう、データの流れや画面遷移を整理して実装しました。
               </p>
             </section>
 
             <section class="detail-block">
-              <h3>担当範囲</h3>
-              <ul>
-                <li>ルーム作成・参加機能</li>
-                <li>Firebase Realtime Database 連携</li>
-                <li>プレイヤー一覧の同期</li>
-                <li>ホスト判定</li>
-                <li>画面遷移の実装</li>
-                <li>UI調整</li>
-              </ul>
+              <h3>Concept</h3>
+              <p>
+                対面で遊ぶワードウルフを、オンラインでも気軽に楽しめるようにすることを目的に制作しました。
+                ルームコードを使って参加できる仕組みにし、離れた場所にいるプレイヤー同士でも同じ部屋でゲームを進められる構成にしています。
+              </p>
+              <p>
+                ゲーム中に迷わないよう、待機・お題確認・話し合い・投票・結果表示の流れを分かりやすく整理しました。
+                それぞれの画面で必要な情報が伝わるよう、UIの見やすさや操作のしやすさも意識しています。
+              </p>
             </section>
 
             <section class="detail-block">
-              <h3>使用技術</h3>
-              <p>HTML / CSS / JavaScript / Firebase / GitHub Pages</p>
+              <h3>画面構成</h3>
+              <p>
+                ルーム作成・参加画面からゲームを開始し、待機画面で参加者を確認できるようにしています。
+                その後、お題確認、話し合い、投票、結果表示へと進む流れにし、ゲームの進行が自然につながるよう構成しました。
+              </p>
+              <p>
+                ホストと参加者で操作できる内容が異なるため、ホスト判定を行い、ゲーム開始などの操作を制御できるようにしています。
+                プレイヤー一覧もリアルタイムで反映されるようにし、参加状況が分かりやすくなるよう調整しました。
+              </p>
+            </section>
+
+            <section class="detail-block">
+              <h3>制作情報</h3>
+              <ul>
+                <li>制作区分：チーム制作</li>
+                <li>制作期間：約〇日（作業時間：約〇〜〇時間）</li>
+                <li>
+                  担当範囲：Firebase連携 / ルーム作成・参加機能 /
+                  プレイヤー情報同期 / ホスト判定 / 画面遷移実装 / UI調整
+                </li>
+                <li>使用技術：HTML / CSS / JavaScript / Firebase</li>
+                <li>公開形式：GitHub Pages</li>
+                <li>制作形式：オンラインゲームWebアプリ</li>
+              </ul>
             </section>
 
             <section class="detail-block">
               <h3>制作ポイント</h3>
               <p>
-                Firebaseを使ってルーム情報やプレイヤー情報を同期し、
-                オンライン上で同じ進行状況を共有できるようにしました。
-                また、各画面の役割が分かりやすくなるように、
-                待機・話し合い・投票・結果の流れを整理しています。
+                Firebaseを使ってルーム情報やプレイヤー情報を同期し、オンライン上で同じ進行状況を共有できるようにしました。
+                ルーム作成時には部屋情報を作成し、参加時にはルームコードをもとに該当する部屋へ入れるようにしています。
+              </p>
+              <p>
+                また、リアルタイムでプレイヤー一覧が更新されるようにすることで、参加状況を確認しやすくしました。
+                ホスト判定や画面遷移の処理も整理し、複数人で遊ぶゲームとして必要な動きを実装しています。
+              </p>
+              <p>
+                オンラインゲームとして動作するだけでなく、待機・話し合い・投票・結果表示の流れが分かりやすくなるようにし、
+                プレイヤーが迷わず進められるUIを目指しました。
               </p>
             </section>
 
-            <section class="detail-block">
-              <h3>URL</h3>
+            <div class="work-detail-links">
+              <a href="https://oui-hri.github.io/wordwolf-online/"
+                >サイトを見る</a
+              >
 
-              <div class="work-detail-links">
-                <a
-                  href="https://oui-hri.github.io/wordwolf-online/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  サイトを見る
-                </a>
-              </div>
-            </section>
+              <a href="../works.html">Works一覧を見る</a>
+            </div>
 
             <a href="../works.html" class="back-link">Works一覧へ戻る</a>
           </div>
