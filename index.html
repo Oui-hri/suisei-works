@@ -17,6 +17,10 @@
   </head>
 
   <body>
+    <div class="page-transition-curtain" aria-hidden="true">
+      <div class="page-curtain-panel page-curtain-left"></div>
+      <div class="page-curtain-panel page-curtain-right"></div>
+    </div>
     <video class="site-bg" autoplay muted loop playsinline>
       <source src="夜空.mp4" type="video/mp4" />
     </video>
@@ -416,14 +420,13 @@
                 alt="すいせいのアイコン"
                 class="profile-image"
               />
+              <span class="profile-comet" aria-hidden="true"></span>
               <span class="profile-orbit orbit-1" aria-hidden="true"></span>
               <span class="profile-orbit orbit-2" aria-hidden="true"></span>
 
               <span class="profile-star star-1" aria-hidden="true"></span>
               <span class="profile-star star-2" aria-hidden="true"></span>
               <span class="profile-star star-3" aria-hidden="true"></span>
-
-              <span class="profile-comet" aria-hidden="true"></span>
             </div>
 
             <div class="profile-text">
@@ -476,50 +479,107 @@
         </div>
       </section>
       <!-- =========================
-         Request Guide
-    ========================= -->
+   Request Guide
+========================= -->
       <section id="request-guide" class="request-guide section fade-in">
         <div class="section-inner">
-          <p class="section-label">Request Guide</p>
-          <h2>ご依頼ガイド</h2>
+          <div class="request-guide-heading">
+            <p class="section-label">Request Guide</p>
+            <h2>ご依頼ガイド</h2>
 
-          <p class="guide-lead">
-            ご相談から納品までの流れや、制作期間の目安をまとめています。
-          </p>
+            <p class="guide-lead">
+              ご相談から納品までの流れや、制作期間の目安をまとめています。
+            </p>
+          </div>
 
-          <div class="guide-block">
+          <div class="guide-block guide-flow-block">
             <h3>ご依頼の流れ</h3>
 
-            <div class="flow-list">
-              <div class="flow-card">
+            <div class="flow-zigzag">
+              <span class="flow-line flow-line-1" aria-hidden="true"></span>
+              <span class="flow-line flow-line-2" aria-hidden="true"></span>
+              <span class="flow-line flow-line-3" aria-hidden="true"></span>
+              <span class="flow-line flow-line-4" aria-hidden="true"></span>
+
+              <article class="flow-card flow-card-1">
                 <span class="flow-number">01</span>
-                <h4>ご相談</h4>
-                <p>制作したい内容やイメージについてお聞きします。</p>
-              </div>
+                <div class="flow-text">
+                  <h4>ご相談</h4>
+                  <p>制作したい内容やイメージについてお聞きします。</p>
+                </div>
 
-              <div class="flow-card">
+                <div class="flow-image-wrap">
+                  <img
+                    src="images/soudann.png"
+                    alt="ご相談のイラスト"
+                    class="guide-step-image"
+                  />
+                </div>
+              </article>
+
+              <article class="flow-card flow-card-2">
                 <span class="flow-number">02</span>
-                <h4>内容確認</h4>
-                <p>使用目的・納期・参考イメージなどを確認します。</p>
-              </div>
+                <div class="flow-text">
+                  <h4>内容確認</h4>
+                  <p>使用目的・納期・参考イメージなどを確認します。</p>
+                </div>
 
-              <div class="flow-card">
+                <div class="flow-image-wrap">
+                  <img
+                    src="images/kakuninn.png"
+                    alt="内容確認のイラスト"
+                    class="guide-step-image"
+                  />
+                </div>
+              </article>
+
+              <article class="flow-card flow-card-3">
                 <span class="flow-number">03</span>
-                <h4>制作</h4>
-                <p>ご相談内容に合わせて制作を進めます。</p>
-              </div>
+                <div class="flow-text">
+                  <h4>制作</h4>
+                  <p>ご相談内容に合わせて制作を進めます。</p>
+                </div>
 
-              <div class="flow-card">
+                <div class="flow-image-wrap">
+                  <img
+                    src="images/seisaku.png"
+                    alt="制作のイラスト"
+                    class="guide-step-image"
+                  />
+                </div>
+              </article>
+
+              <article class="flow-card flow-card-4">
                 <span class="flow-number">04</span>
-                <h4>確認・修正</h4>
-                <p>必要に応じて内容を調整します。</p>
-              </div>
+                <div class="flow-text">
+                  <h4>確認・修正</h4>
+                  <p>内容をご確認いただき、必要に応じて調整します。</p>
+                </div>
 
-              <div class="flow-card">
+                <div class="flow-image-wrap">
+                  <img
+                    src="images/syuusei.png"
+                    alt="確認と修正のイラスト"
+                    class="guide-step-image"
+                  />
+                </div>
+              </article>
+
+              <article class="flow-card flow-card-5">
                 <span class="flow-number">05</span>
-                <h4>納品</h4>
-                <p>完成後、用途に合わせた形式で納品します。</p>
-              </div>
+                <div class="flow-text">
+                  <h4>納品</h4>
+                  <p>完成後、用途に合わせた形式で納品します。</p>
+                </div>
+
+                <div class="flow-image-wrap">
+                  <img
+                    src="images/nouhinn.png"
+                    alt="納品のイラスト"
+                    class="guide-step-image"
+                  />
+                </div>
+              </article>
             </div>
           </div>
 
@@ -528,34 +588,26 @@
 
             <div class="schedule-list">
               <div class="schedule-card">
+                <p class="schedule-category">Video Editing</p>
                 <h4>動画編集</h4>
-                <div class="schedule-bar">
-                  <span style="width: 45%"></span>
-                </div>
                 <p>3日〜7日程度</p>
               </div>
 
               <div class="schedule-card">
+                <p class="schedule-category">Design</p>
                 <h4>デザイン制作</h4>
-                <div class="schedule-bar">
-                  <span style="width: 35%"></span>
-                </div>
                 <p>2日〜5日程度</p>
               </div>
 
               <div class="schedule-card">
+                <p class="schedule-category">Illustration</p>
                 <h4>イラスト制作</h4>
-                <div class="schedule-bar">
-                  <span style="width: 70%"></span>
-                </div>
                 <p>1〜2週間程度</p>
               </div>
 
               <div class="schedule-card">
+                <p class="schedule-category">Web</p>
                 <h4>Web制作</h4>
-                <div class="schedule-bar">
-                  <span style="width: 100%"></span>
-                </div>
                 <p>2週間〜1ヶ月程度</p>
               </div>
             </div>
@@ -608,17 +660,25 @@
             <div class="faq-list">
               <details class="faq-item">
                 <summary>まだ内容が決まっていなくても相談できますか？</summary>
-                <p>はい。イメージが固まっていない段階でもご相談可能です。</p>
+                <p>
+                  はい。イメージが固まっていない段階でもご相談可能です。<br />
+                  一緒にすり合わせながら制作いたしますので、<br />お気軽にご相談ください。
+                </p>
               </details>
 
               <details class="faq-item">
                 <summary>修正は可能ですか？</summary>
-                <p>可能です。内容に応じて調整しながら進めます。</p>
+                <p>
+                  可能です。内容に応じて調整しながら進めます。<br />また、完成後の修正も原則3回まで受け付け可能です。<br />Web制作のデータ更新の際は、別途ご相談ください。
+                </p>
               </details>
 
               <details class="faq-item">
                 <summary>納期はどれくらいですか？</summary>
-                <p>制作内容によって異なりますが、目安をもとにご案内します。</p>
+                <p>
+                  制作内容によって異なりますが、目安をもとにご案内します。<br />
+                  また、Worksの各作品詳細ページにて、制作期間に関する記載がございますので、そちらをご参考ください。
+                </p>
               </details>
 
               <details class="faq-item">
@@ -682,7 +742,12 @@
             <details class="contact-form-accordion">
               <summary>お問い合わせフォームを開く</summary>
 
-              <form class="contact-form" action="#" method="post">
+              <form
+                id="contact-form"
+                class="contact-form"
+                action="#"
+                method="post"
+              >
                 <label>
                   お名前
                   <input
@@ -706,11 +771,11 @@
                   希望する制作内容
                   <select name="service">
                     <option value="">選択してください</option>
-                    <option value="video">動画編集</option>
-                    <option value="design">デザイン制作</option>
-                    <option value="illustration">イラスト制作</option>
-                    <option value="web">Web制作</option>
-                    <option value="other">その他</option>
+                    <option value="動画編集">動画編集</option>
+                    <option value="デザイン制作">デザイン制作</option>
+                    <option value="イラスト制作">イラスト制作</option>
+                    <option value="Web制作">Web制作</option>
+                    <option value="その他">その他</option>
                   </select>
                 </label>
 
@@ -743,6 +808,11 @@
                 </label>
 
                 <button type="submit">送信する</button>
+                <p
+                  id="contact-status"
+                  class="contact-status"
+                  aria-live="polite"
+                ></p>
               </form>
             </details>
           </div>
@@ -750,6 +820,8 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/contact.js"></script>
     <script src="js/common.js"></script>
   </body>
 </html>

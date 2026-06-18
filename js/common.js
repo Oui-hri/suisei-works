@@ -187,3 +187,58 @@ workSliders.forEach((slider) => {
 
   startSlider();
 });
+
+// =========================
+// Page Transition Curtain
+// =========================
+
+const pageTransitionCurtain = document.querySelector(".page-transition-curtain");
+
+if (pageTransitionCurtain) {
+  const shouldOpenCurtain =
+    sessionStorage.getItem("suiseiPageTransition") === "true";
+  if (shouldOpenCurtain) {
+  document.body.classList.add("skip-hero-curtain");
+}
+
+  if (shouldOpenCurtain) {
+    document.body.classList.add("page-curtain-closed");
+
+    requestAnimationFrame(() => {
+      document.body.classList.add("page-curtain-opening");
+      document.body.classList.remove("page-curtain-closed");
+    });
+
+    setTimeout(() => {
+      document.body.classList.add("page-curtain-hidden");
+      document.body.classList.remove("page-curtain-opening");
+      sessionStorage.removeItem("suiseiPageTransition");
+    }, 850);
+  }
+
+  const links = document.querySelectorAll("a[href]");
+
+  links.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+
+      if (!href) return;
+      if (link.target === "_blank") return;
+      if (href.startsWith("#")) return;
+      if (href.startsWith("mailto:")) return;
+      if (href.startsWith("tel:")) return;
+      if (href.startsWith("http")) return;
+
+      event.preventDefault();
+
+      document.body.classList.remove("page-curtain-hidden");
+      document.body.classList.add("page-curtain-leaving");
+
+      sessionStorage.setItem("suiseiPageTransition", "true");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 650);
+    });
+  });
+}
