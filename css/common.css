@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
   color: white;
   background: #0c0693;
   font-family: sans-serif;
+  overflow-x: clip;
 }
 
 /* サイト全体の背景動画 */
