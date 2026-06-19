@@ -77,6 +77,32 @@ header {
 .menu a:hover {
   opacity: 0.7;
 }
+/* =========================
+   Header Logo
+========================= */
+
+.site-title {
+  margin: 0;
+  line-height: 1;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-logo img {
+  display: block;
+  width: clamp(150px, 14vw, 210px);
+  height: auto;
+
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(170, 230, 255, 0.28));
+}
+
+.site-logo:hover img {
+  opacity: 0.82;
+}
 
 /* =========================
    共通
@@ -260,4 +286,41 @@ body.page-curtain-hidden .page-transition-curtain {
 /* ページ切り替えでHomeに来た時は、Hero用カーテンを再生しない */
 body.skip-hero-curtain .hero-curtain {
   display: none;
+}
+
+/* =========================
+   Custom Cursor / PC Only
+========================= */
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 32 32'%3E%3Cellipse cx='10' cy='10' rx='8.5' ry='3.1' transform='rotate(-24 10 10)' fill='none' stroke='%23bfefff' stroke-width='1.1' opacity='0.9'/%3E%3Ccircle cx='10' cy='10' r='5.2' fill='none' stroke='white' stroke-width='1.1'/%3E%3Ccircle cx='10' cy='10' r='2.7' fill='white'/%3E%3C/svg%3E")
+        14 14,
+      auto;
+  }
+
+  a,
+  button,
+  summary,
+  .menu a,
+  .work-image-card,
+  .work-image-card-coming,
+  .skill-constellation-card,
+  .slider-button,
+  .contact-form button,
+  .works-page-button a,
+  .sns-buttons a,
+  .contact-buttons a {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 32 32'%3E%3Cellipse cx='10' cy='10' rx='9.2' ry='3.3' transform='rotate(-24 10 10)' fill='none' stroke='%23bfefff' stroke-width='1.35' opacity='0.95'/%3E%3Ccircle cx='10' cy='10' r='5.8' fill='none' stroke='white' stroke-width='1.15'/%3E%3Ccircle cx='10' cy='10' r='3' fill='white'/%3E%3C/svg%3E")
+        14 14,
+      pointer;
+  }
+
+  input,
+  textarea,
+  select {
+    cursor: auto;
+  }
 }

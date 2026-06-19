@@ -72,3 +72,60 @@
   font-size: 13px;
   opacity: 0.75;
 }
+
+/* =========================
+   Concept Symbol Logo
+========================= */
+
+.concept-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 420px;
+}
+
+/* ロゴの後ろにだけ、淡い霞を置く */
+.concept-visual::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  z-index: 0;
+
+  width: min(150%, 880px);
+  height: 920px;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(235, 245, 255, 0.34) 0%,
+    rgba(190, 220, 255, 0.22) 34%,
+    rgba(120, 150, 220, 0.12) 56%,
+    transparent 74%
+  );
+
+  filter: blur(18px);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.concept-symbol-logo {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: min(100%, 420px);
+  max-width: 420px;
+  height: auto;
+
+  opacity: 0.96;
+
+  filter: drop-shadow(0 0 18px rgba(170, 230, 255, 0.22));
+}
