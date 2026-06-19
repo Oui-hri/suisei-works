@@ -1,192 +1,581 @@
 /* =========================
-   Index Responsive
-   共通レスポンシブ
+Index Responsive
+共通レスポンシブ
 ========================= */
 
 @media screen and (max-width: 960px) {
-  .concept-layout,
-  .contact-layout {
-    grid-template-columns: 1fr;
-  }
+.concept-layout,
+.contact-layout {
+grid-template-columns: 1fr;
+}
 
-  .profile-card {
-    grid-template-columns: 1fr;
-  }
+.profile-card {
+grid-template-columns: 1fr;
+}
 
-  .flow-list {
-    grid-template-columns: 1fr;
-  }
+.flow-list {
+grid-template-columns: 1fr;
+}
 
-  .flow-card::after {
-    content: "↓";
-    top: auto;
-    right: 50%;
-    bottom: -24px;
-    transform: translateX(50%);
-  }
+.flow-card::after {
+content: "↓";
+top: auto;
+right: 50%;
+bottom: -24px;
+transform: translateX(50%);
+}
 
-  .flow-card:last-child::after {
-    display: none;
-  }
+.flow-card:last-child::after {
+display: none;
+}
 
-  .delivery-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.delivery-list {
+grid-template-columns: repeat(2, 1fr);
+}
 
-  .contact-info {
-    text-align: center;
-  }
+.contact-info {
+text-align: center;
+}
 
-  .sns-buttons {
-    justify-content: center;
-  }
+.sns-buttons {
+justify-content: center;
+}
 
-  .contact-form button {
-    justify-self: stretch;
-  }
+.contact-form button {
+justify-self: stretch;
+}
 }
 
 @media screen and (max-width: 768px) {
-  .section {
-    padding: 84px 20px;
-  }
+.section {
+padding: 84px 20px;
+}
 
-  .section h2 {
-    font-size: 28px;
-    line-height: 1.4;
-  }
+.section h2 {
+font-size: 28px;
+line-height: 1.4;
+}
 
-  .hero-lights {
-    transform: translateY(16px) scale(1.25);
-    transform-origin: top center;
-  }
+.hero-lights {
+transform: translateY(16px) scale(1.25);
+transform-origin: top center;
+}
 
-  .moon-decoration {
-    top: -120px;
-    width: 340px;
-    transform: translateX(-50%);
-    opacity: 0.22;
-  }
+.moon-decoration {
+top: -120px;
+width: 340px;
+transform: translateX(-50%);
+opacity: 0.22;
+}
 
-  .hero {
-    min-height: 92vh;
-    padding: 32px 18px 56px;
-    justify-content: center;
-  }
+.hero {
+min-height: 92vh;
+padding: 32px 18px 56px;
+justify-content: center;
+}
 
-  .hero-content {
-    padding-top: 0;
-    transform: translateY(-20px);
-  }
+.hero-content {
+padding-top: 0;
+transform: translateY(-20px);
+}
 
-  .hero-label {
-    font-size: 13px;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-  }
+.hero-label {
+font-size: 13px;
+letter-spacing: 3px;
+margin-bottom: 12px;
+}
 
-  .hero-title {
-    font-size: 30px;
-    line-height: 1.35;
-    max-width: 92%;
-    margin: 12px 0 0;
-  }
+.hero-title {
+font-size: 30px;
+line-height: 1.35;
+max-width: 92%;
+margin: 12px 0 0;
+}
 
-  .hero-title span {
-    padding-bottom: 10px;
-  }
+.hero-title span {
+padding-bottom: 10px;
+}
 
-  .hero-text {
-    font-size: 15px;
-    line-height: 1.8;
-    max-width: 88%;
-    margin: 28px auto 0;
-  }
+.hero-text {
+font-size: 15px;
+line-height: 1.8;
+max-width: 88%;
+margin: 28px auto 0;
+}
 
-  .hero-button {
-    margin-top: 22px;
-    padding: 11px 22px;
-    font-size: 14px;
-  }
+.hero-button {
+margin-top: 22px;
+padding: 11px 22px;
+font-size: 14px;
+}
 
-  .concept-text,
-  .contact-form-area {
-    padding: 26px;
-  }
+.concept-text,
+.contact-form-area {
+padding: 26px;
+}
 
-  .profile-card {
-    padding: 28px;
-  }
+.profile-card {
+padding: 28px;
+}
 
-  .profile-text h2 {
-    font-size: 34px;
-  }
+.profile-text h2 {
+font-size: 34px;
+}
 
-  .schedule-list,
-  .guide-item-list {
-    grid-template-columns: 1fr;
-  }
+.schedule-list,
+.guide-item-list {
+grid-template-columns: 1fr;
+}
 }
 
 @media screen and (max-width: 480px) {
-  .section {
-    padding: 72px 18px;
+.section {
+padding: 72px 18px;
+}
+
+/* =========================
+Hero / Mobile
+========================= */
+
+.hero {
+position: relative;
+
+```
+min-height: 70svh;
+padding: 76px 16px 28px;
+overflow: hidden;
+
+display: flex;
+align-items: center;
+justify-content: center;
+```
+
+}
+
+.hero-lights {
+position: absolute;
+top: -22px;
+left: 50%;
+
+```
+width: 330px;
+max-width: 92vw;
+
+transform: translateX(-50%) scale(1);
+transform-origin: top center;
+
+opacity: 0.82;
+pointer-events: none;
+```
+
+}
+
+.moon-decoration {
+top: -120px;
+width: 330px;
+transform: translateX(-50%);
+opacity: 0.2;
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+
+```
+width: 100%;
+padding-top: 0;
+
+transform: translateY(62px);
+text-align: center;
+```
+
+}
+
+.hero-label {
+font-size: 10px;
+letter-spacing: 2px;
+margin-bottom: 8px;
+}
+
+.hero-title {
+font-size: 22px;
+line-height: 1.55;
+max-width: 94%;
+margin: 0 auto;
+}
+
+.hero-title span {
+padding-bottom: 8px;
+}
+
+.hero-no-text {
+min-height: auto;
+margin-top: -44px;
+padding: 0 20px 64px;
+text-align: center;
+}
+
+.hero-text {
+max-width: 300px;
+margin: 0 auto;
+
+```
+font-size: 12px;
+line-height: 1.85;
+```
+
+}
+
+.hero-button {
+margin-top: 18px;
+padding: 9px 18px;
+font-size: 12px;
+}
+
+/* =========================
+Concept
+========================= */
+
+.concept-decoration {
+min-height: 240px;
+}
+
+.concept-moon {
+width: 130px;
+height: 130px;
+right: 24px;
+}
+
+/* =========================
+Guide / Contact
+========================= */
+
+.delivery-list {
+grid-template-columns: 1fr;
+}
+
+.contact-icon {
+width: 82px;
+height: 82px;
+}
+}
+/* =========================
+   Request Guide / Smartphone Portrait Compact
+========================= */
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  /* セクション全体 */
+  .request-guide {
+    padding: 64px 14px 80px !important;
+    box-sizing: border-box !important;
   }
 
-  .hero-lights {
-    transform: translateY(18px) scale(1.35);
-    transform-origin: top center;
+  .request-guide .section-inner {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  .moon-decoration {
-    top: -120px;
-    width: 360px;
-    transform: translateX(-50%);
-    opacity: 0.22;
+  .request-guide-heading {
+    margin-bottom: 28px !important;
+    text-align: center !important;
   }
 
-  .hero {
-    min-height: 88vh;
-    padding: 24px 16px 48px;
+  .request-guide-heading .section-label {
+    font-size: 11px !important;
+    letter-spacing: 0.16em !important;
   }
 
-  .hero-content {
-    transform: translateY(-28px);
+  .request-guide-heading h2 {
+    margin-top: 8px !important;
+    font-size: 23px !important;
+    line-height: 1.35 !important;
   }
 
-  .hero-title {
-    font-size: 27px;
-    line-height: 1.4;
-    max-width: 94%;
+  .guide-lead {
+    max-width: 92% !important;
+    margin: 12px auto 0 !important;
+
+    font-size: 13px !important;
+    line-height: 1.75 !important;
   }
 
-  .hero-text {
-    font-size: 14px;
-    line-height: 1.8;
-    max-width: 88%;
+  /* =========================
+     セクション内の大カード全部
+  ========================= */
+
+  .guide-block {
+    width: 100% !important;
+    margin: 0 0 22px !important;
+    padding: 20px 14px !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
   }
 
-  .hero-button {
-    font-size: 14px;
-    padding: 10px 20px;
+  .guide-block h3 {
+    margin: 0 0 16px !important;
+
+    font-size: 17px !important;
+    line-height: 1.5 !important;
   }
 
-  .concept-decoration {
-    min-height: 240px;
+  /* =========================
+     ご依頼の流れ
+  ========================= */
+
+  .flow-zigzag {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 0 !important;
   }
 
-  .concept-moon {
-    width: 130px;
-    height: 130px;
-    right: 24px;
+  .flow-line {
+    display: none !important;
   }
 
-  .delivery-list {
-    grid-template-columns: 1fr;
+  .flow-card,
+.flow-card-1,
+.flow-card-2,
+.flow-card-3,
+.flow-card-4,
+.flow-card-5 {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  width: 100% !important;
+  min-height: 170px !important;
+
+  display: grid !important;
+  grid-template-columns: 105px 1fr !important;
+  grid-template-areas:
+    "number text"
+    "image  text";
+  column-gap: 16px !important;
+  row-gap: 8px !important;
+  align-items: center !important;
+
+  padding: 16px 16px !important;
+  border-radius: 18px !important;
+  box-sizing: border-box !important;
+
+  transform: none !important;
+}
+  .flow-number {
+  grid-area: number !important;
+
+  margin: 0 !important;
+
+  font-size: 20px !important;
+  letter-spacing: 0.12em !important;
+}
+
+.flow-text {
+  grid-area: text !important;
+
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.flow-text h4 {
+  margin: 0 0 6px !important;
+
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+.flow-text p {
+  margin: 0 !important;
+
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+.flow-image-wrap {
+  grid-area: image !important;
+
+  width: 105px !important;
+  height: 92px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 16px !important;
+}
+
+.guide-step-image {
+  width: 92px !important;
+  height: 92px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+}
+
+/* =========================
+   Works Preview / Smartphone Portrait
+   3 columns
+========================= */
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .works-preview {
+    padding: 64px 14px 80px !important;
+    box-sizing: border-box !important;
   }
 
-  .contact-icon {
-    width: 82px;
-    height: 82px;
+  .works-preview .section-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .works-preview-heading {
+    margin-bottom: 28px !important;
+    text-align: center !important;
+  }
+
+  .works-preview-heading .section-label {
+    font-size: 11px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .works-preview-heading h2 {
+    margin-top: 8px !important;
+    font-size: 24px !important;
+    line-height: 1.35 !important;
+  }
+
+  .works-text {
+    max-width: 92% !important;
+    margin: 12px auto 0 !important;
+
+    font-size: 13px !important;
+    line-height: 1.75 !important;
+  }
+
+  .works-image-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .work-image-card {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+
+    border-radius: 999px !important;
+    overflow: hidden !important;
+  }
+
+  .work-image-card img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+  }
+
+  .work-image-placeholder {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+
+  .work-image-caption {
+    padding: 8px 6px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .work-image-caption p {
+    margin: 0 0 4px !important;
+
+    font-size: 8px !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1.2 !important;
+  }
+
+  .work-image-caption h3 {
+    margin: 0 !important;
+
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+  }
+
+  .works-page-button {
+    margin-top: 28px !important;
+    text-align: center !important;
+  }
+
+  .works-page-button a {
+    padding: 10px 20px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* =========================
+   Curtain Animation / Smartphone Portrait
+========================= */
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  /* =========================
+     Home最初のカーテン
+  ========================= */
+
+  .hero-curtain {
+    transform: scale(1.18) !important;
+    transform-origin: center top !important;
+  }
+
+  .curtain-panel {
+    width: 66vw !important;
+    height: 120vh !important;
+  }
+
+  .curtain-left {
+    left: -8vw !important;
+  }
+
+  .curtain-right {
+    right: -8vw !important;
+  }
+
+  /* =========================
+     ページ遷移カーテン
+  ========================= */
+
+  .page-transition-curtain {
+    --curtain-width: 66vw !important;
+    --curtain-height: 120vh !important;
+    --curtain-opacity: 0.28 !important;
+    --curtain-blur: 1px !important;
+  }
+
+  .page-curtain-panel {
+    width: var(--curtain-width) !important;
+    height: var(--curtain-height) !important;
+  }
+
+  .page-curtain-left {
+    left: -8vw !important;
+  }
+
+  .page-curtain-right {
+    right: -8vw !important;
   }
 }
