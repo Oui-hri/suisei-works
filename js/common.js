@@ -242,3 +242,132 @@ if (pageTransitionCurtain) {
     });
   });
 }
+
+
+// =========================
+// Smartphone Header Menu
+// =========================
+
+const menuToggle = document.querySelector(".menu-toggle");
+const headerMenu = document.querySelector("header .menu");
+
+if (menuToggle && headerMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = headerMenu.classList.toggle("is-open");
+
+    menuToggle.classList.toggle("is-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "メニューを閉じる" : "メニューを開く"
+    );
+  });
+
+  headerMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      headerMenu.classList.remove("is-open");
+      menuToggle.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "メニューを開く");
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = headerMenu.contains(event.target);
+    const isClickToggle = menuToggle.contains(event.target);
+
+    if (isClickInsideMenu || isClickToggle) return;
+
+    headerMenu.classList.remove("is-open");
+    menuToggle.classList.remove("is-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "メニューを開く");
+  });
+}
+// =========================
+// Service Smartphone Accordion
+// =========================
+
+console.log("Service accordion JS loaded");
+
+const serviceCards = document.querySelectorAll(
+  "#skills .skill-constellation-card"
+);
+
+const serviceMediaQuery = window.matchMedia("(max-width: 480px)");
+
+console.log("Service cards count:", serviceCards.length);
+
+function closeServiceCards() {
+  serviceCards.forEach((card) => {
+    card.classList.remove("is-open");
+    card.classList.remove("is-muted");
+    card.setAttribute("aria-expanded", "false");
+  });
+
+  console.log("Service cards closed");
+}
+
+function openServiceCard(activeCard) {
+  serviceCards.forEach((card) => {
+    const isActive = card === activeCard;
+
+    card.classList.toggle("is-open", isActive);
+    card.classList.toggle("is-muted", !isActive);
+    card.setAttribute("aria-expanded", String(isActive));
+  });
+
+  console.log("Service card opened:", activeCard.className);
+}
+
+if (serviceCards.length > 0) {
+  serviceCards.forEach((card) => {
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-expanded", "false");
+
+    card.addEventListener("click", (event) => {
+      if (!serviceMediaQuery.matches) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      console.log("Service card clicked:", card.className);
+
+      const isOpen = card.classList.contains("is-open");
+
+      if (isOpen) {
+        closeServiceCards();
+        card.blur();
+        return;
+      }
+
+      openServiceCard(card);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (!serviceMediaQuery.matches) return;
+      if (event.key !== "Enter" && event.key !== " ") return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      card.click();
+    });
+  });
+
+  document.addEventListener("click", () => {
+    if (!serviceMediaQuery.matches) return;
+
+    closeServiceCards();
+
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (serviceMediaQuery.matches) return;
+
+    closeServiceCards();
+  });
+}

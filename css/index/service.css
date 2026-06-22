@@ -1,8 +1,8 @@
 /* =========================
    Service
    いて座モチーフのスキル星座
-   通常：文字だけ発光
-   hover / focus：カード出現
+   PC：文字だけ発光 / hover・focusでカード表示
+   SP：＋で開く / −で閉じる
 ========================= */
 
 #skills.skills {
@@ -81,7 +81,6 @@
   opacity: 0;
 }
 
-/* 表示アニメーション */
 #skills.skills.constellation-active .skill-line,
 #skills.skills.show .skill-line {
   animation: drawSkillLine 1.45s ease forwards;
@@ -128,10 +127,11 @@
     border-radius 0.32s ease,
     background 0.32s ease,
     box-shadow 0.32s ease,
-    transform 0.32s ease;
+    transform 0.32s ease,
+    opacity 0.24s ease,
+    visibility 0.24s ease;
 }
 
-/* 表示する文字 */
 #skills .skill-constellation-card::after {
   content: "";
   position: absolute;
@@ -160,6 +160,7 @@
 
   transition:
     opacity 0.24s ease,
+    visibility 0.24s ease,
     transform 0.24s ease,
     text-shadow 0.24s ease;
 }
@@ -185,10 +186,9 @@
 }
 
 /* =========================
-   参考画像に合わせた配置
+   星座上の配置
 ========================= */
 
-/* 左上の星 */
 #skills .skill-card-video {
   left: 21%;
   top: 34.2%;
@@ -196,7 +196,6 @@
   --label-y: -44px;
 }
 
-/* 中央の星 */
 #skills .skill-card-design {
   left: 41%;
   top: 32.2%;
@@ -204,7 +203,6 @@
   --label-y: 54px;
 }
 
-/* 右上へ分岐する中心の星 */
 #skills .skill-card-illustration {
   left: 59%;
   top: 26.3%;
@@ -212,7 +210,6 @@
   --label-y: -28px;
 }
 
-/* 右側の縦線の星 */
 #skills .skill-card-web {
   left: 67%;
   top: 44.7%;
@@ -220,7 +217,6 @@
   --label-y: 12px;
 }
 
-/* 右下の星 */
 #skills .skill-card-vtuber {
   left: 63%;
   top: 65.1%;
@@ -228,7 +224,10 @@
   --label-y: 50px;
 }
 
-/* セクション表示時の文字アニメーション */
+/* =========================
+   表示アニメーション
+========================= */
+
 #skills.skills.constellation-active .skill-constellation-card,
 #skills.skills.show .skill-constellation-card {
   animation: skillLabelIn 0.7s ease forwards;
@@ -259,7 +258,10 @@
   animation-delay: 1.05s;
 }
 
-/* hover / focus時：文字を軽く持ち上げる */
+/* =========================
+   PC hover / focus：カード表示
+========================= */
+
 #skills .skill-constellation-card:hover::after,
 #skills .skill-constellation-card:focus::after,
 #skills .skill-constellation-card:focus-visible::after {
@@ -269,10 +271,6 @@
     calc(-70% + var(--label-y, 0px))
   );
 }
-
-/* =========================
-   hover / focus：ガラスカード出現
-========================= */
 
 #skills .skill-constellation-card:hover,
 #skills .skill-constellation-card:focus,
@@ -303,7 +301,6 @@
   transform: translate(-50%, -50%) translateY(-8px);
 }
 
-/* 端のカードだけ、画面外に出にくくする */
 #skills .skill-card-video:hover,
 #skills .skill-card-video:focus,
 #skills .skill-card-video:focus-visible {
@@ -327,14 +324,17 @@
   position: absolute;
   top: 20px;
   right: 22px;
+
   width: 9px;
   height: 9px;
   border-radius: 50%;
+
   background: white;
   box-shadow:
     0 0 8px white,
     0 0 16px lightblue,
     0 0 28px rgba(173, 216, 230, 0.75);
+
   opacity: 0;
   transition: 0.25s ease;
 }
@@ -345,6 +345,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
+
   background: white;
   transform: translate(-50%, -50%);
   opacity: 0.85;
@@ -367,7 +368,7 @@
 }
 
 /* =========================
-   カードの中身
+   カード内テキスト
 ========================= */
 
 #skills .skill-number,
@@ -380,6 +381,7 @@
   max-height: 0;
   overflow: hidden;
   pointer-events: none;
+
   transition:
     opacity 0.24s ease,
     transform 0.24s ease,
@@ -412,11 +414,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 42px;
   height: 42px;
   margin-bottom: 14px;
 
   border-radius: 50%;
+
   font-size: 14px;
   font-weight: bold;
   color: #030783;
@@ -427,13 +431,16 @@
 
 #skills .skill-category {
   margin: 0 0 4px;
+
   font-size: 12px;
   letter-spacing: 1.4px;
+
   color: rgba(255, 255, 255, 0.78);
 }
 
 #skills .skill-constellation-card h3 {
   margin: 0 0 8px;
+
   font-size: 24px;
   line-height: 1.25;
 }
@@ -446,12 +453,14 @@
 #skills .skill-constellation-card .tool-text {
   margin-top: 14px;
   padding-top: 12px;
+
   border-top: 1px solid rgba(255, 255, 255, 0.22);
+
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* =========================
-   hover時に対応する星を少し強調
+   星の強調
 ========================= */
 
 #skills .skills-constellation:has(.skill-card-video:hover) .node-video,
@@ -473,7 +482,7 @@
 }
 
 /* =========================
-   Service Animation
+   Keyframes
 ========================= */
 
 @keyframes drawSkillLine {
@@ -512,22 +521,6 @@
   }
 }
 
-@keyframes laceSweepHover {
-  0% {
-    opacity: 0;
-    transform: skewX(-14deg) translateX(0);
-  }
-
-  20% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0;
-    transform: skewX(-14deg) translateX(310%);
-  }
-}
-
 /* =========================
    Service Responsive
 ========================= */
@@ -548,9 +541,11 @@
   #skills .skill-constellation-card {
     position: absolute;
     right: auto;
+
     width: 230px;
     max-width: none;
     margin: 0;
+
     transform: translate(-50%, -50%);
   }
 
@@ -662,6 +657,13 @@
   }
 }
 
+/* =========================
+   Smartphone
+   通常：＋表示
+   開いたカード：−表示
+   閉じたら：＋に戻る
+========================= */
+
 @media screen and (max-width: 480px) {
   #skills .skills-constellation {
     height: 620px;
@@ -720,26 +722,278 @@
     --label-y: 48px;
   }
 
-  #skills .skill-constellation-card:hover,
-  #skills .skill-constellation-card:focus,
-  #skills .skill-constellation-card:focus-visible {
+  /* 通常時：＋つきラベル */
+  #skills .skill-card-video::after {
+    content: "01. Video Editing ＋";
+  }
+
+  #skills .skill-card-design::after {
+    content: "02. Design ＋";
+  }
+
+  #skills .skill-card-illustration::after {
+    content: "03. Illustration ＋";
+  }
+
+  #skills .skill-card-web::after {
+    content: "04. Web Design ＋";
+  }
+
+  #skills .skill-card-vtuber::after {
+    content: "05. VTuber 2D ＋";
+  }
+
+  /* スマホでは、閉じているカードはfocusで開かない */
+  #skills .skill-constellation-card:not(.is-open):hover,
+  #skills .skill-constellation-card:not(.is-open):focus,
+  #skills .skill-constellation-card:not(.is-open):focus-visible {
+    width: 190px;
+    min-height: 42px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  #skills .skill-card-video:not(.is-open):hover,
+  #skills .skill-card-video:not(.is-open):focus,
+  #skills .skill-card-video:not(.is-open):focus-visible,
+  #skills .skill-card-web:not(.is-open):hover,
+  #skills .skill-card-web:not(.is-open):focus,
+  #skills .skill-card-web:not(.is-open):focus-visible,
+  #skills .skill-card-vtuber:not(.is-open):hover,
+  #skills .skill-card-vtuber:not(.is-open):focus,
+  #skills .skill-card-vtuber:not(.is-open):focus-visible {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  #skills .skill-constellation-card:not(.is-open):hover .skill-number,
+  #skills .skill-constellation-card:not(.is-open):focus .skill-number,
+  #skills .skill-constellation-card:not(.is-open):focus-visible .skill-number,
+  #skills .skill-constellation-card:not(.is-open):hover .skill-category,
+  #skills .skill-constellation-card:not(.is-open):focus .skill-category,
+  #skills .skill-constellation-card:not(.is-open):focus-visible .skill-category,
+  #skills .skill-constellation-card:not(.is-open):hover h3,
+  #skills .skill-constellation-card:not(.is-open):focus h3,
+  #skills .skill-constellation-card:not(.is-open):focus-visible h3,
+  #skills .skill-constellation-card:not(.is-open):hover p,
+  #skills .skill-constellation-card:not(.is-open):focus p,
+  #skills .skill-constellation-card:not(.is-open):focus-visible p,
+  #skills .skill-constellation-card:not(.is-open):hover .tool-text,
+  #skills .skill-constellation-card:not(.is-open):focus .tool-text,
+  #skills .skill-constellation-card:not(.is-open):focus-visible .tool-text {
+    opacity: 0;
+    transform: translateY(8px);
+    max-height: 0;
+    pointer-events: none;
+  }
+
+  /* 開いたカードは最前面 */
+  #skills .skill-constellation-card.is-open {
+    z-index: 80;
+
     width: min(278px, 84vw);
     min-height: 218px;
     padding: 20px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(173, 216, 230, 0.08)
+      ),
+      rgba(3, 7, 131, 0.36);
+
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 28px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+      0 0 26px rgba(173, 216, 230, 0.36),
+      0 0 42px rgba(173, 216, 230, 0.2),
+      inset 0 0 20px rgba(255, 255, 255, 0.08);
+
+    transform: translate(-50%, -50%) translateY(-8px);
   }
 
-  #skills .skill-card-video:hover,
-  #skills .skill-card-video:focus,
-  #skills .skill-card-video:focus-visible {
+  #skills .skill-card-video.is-open {
     transform: translate(-42%, -50%) translateY(-8px);
   }
 
-  #skills .skill-card-web:hover,
-  #skills .skill-card-web:focus,
-  #skills .skill-card-web:focus-visible,
-  #skills .skill-card-vtuber:hover,
-  #skills .skill-card-vtuber:focus,
-  #skills .skill-card-vtuber:focus-visible {
+  #skills .skill-card-web.is-open,
+  #skills .skill-card-vtuber.is-open {
     transform: translate(-60%, -50%) translateY(-8px);
+  }
+
+  /* 開いたカード自身の通常ラベルは消す */
+  #skills .skill-constellation-card.is-open::after {
+    content: "";
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* 開いたカード以外のラベルは一時的に消す */
+  #skills .skill-constellation-card.is-muted {
+    pointer-events: none;
+  }
+
+  #skills .skill-constellation-card.is-muted::after {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* 開いたカード右上の− */
+  #skills .skill-constellation-card.is-open::before {
+    content: "−";
+
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    z-index: 90;
+
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+
+    color: rgba(3, 7, 131, 0.9);
+    background: rgba(255, 255, 255, 0.88);
+
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 18px rgba(173, 216, 230, 0.42);
+
+    pointer-events: none;
+  }
+
+  #skills .skill-constellation-card.is-open .card-star {
+    opacity: 0;
+  }
+
+  #skills .skill-constellation-card.is-open .skill-number,
+  #skills .skill-constellation-card.is-open .skill-category,
+  #skills .skill-constellation-card.is-open h3,
+  #skills .skill-constellation-card.is-open p,
+  #skills .skill-constellation-card.is-open .tool-text {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 240px;
+    pointer-events: auto;
+  }
+}
+/* =========================
+   Service / Smartphone Focus Label Fix
+   閉じた後に＋ラベルを戻す
+========================= */
+
+@media screen and (max-width: 480px) {
+  #skills .skill-constellation-card:not(.is-open)::after,
+  #skills .skill-constellation-card:not(.is-open):hover::after,
+  #skills .skill-constellation-card:not(.is-open):focus::after,
+  #skills .skill-constellation-card:not(.is-open):focus-visible::after {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+
+    transform: translate(
+      calc(-50% + var(--label-x, 0px)),
+      calc(-50% + var(--label-y, 0px))
+    ) !important;
+  }
+
+  #skills .skill-card-video:not(.is-open)::after {
+    content: "01. Video Editing ＋" !important;
+  }
+
+  #skills .skill-card-design:not(.is-open)::after {
+    content: "02. Design ＋" !important;
+  }
+
+  #skills .skill-card-illustration:not(.is-open)::after {
+    content: "03. Illustration ＋" !important;
+  }
+
+  #skills .skill-card-web:not(.is-open)::after {
+    content: "04. Web Design ＋" !important;
+  }
+
+  #skills .skill-card-vtuber:not(.is-open)::after {
+    content: "05. VTuber 2D ＋" !important;
+  }
+
+  #skills .skill-constellation-card.is-open::after {
+    content: "" !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+/* =========================
+   Service / Smartphone Star Mark Fix
+   ＋横に出る丸い星マークを消す
+========================= */
+
+@media screen and (max-width: 480px) {
+  #skills .card-star,
+  #skills .card-star::before,
+  #skills .card-star::after,
+  #skills .skill-constellation-card:hover .card-star,
+  #skills .skill-constellation-card:focus .card-star,
+  #skills .skill-constellation-card:focus-visible .card-star,
+  #skills .skill-constellation-card.is-open .card-star {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+/* =========================
+   Service / Smartphone Label Position
+   星座に文字を近づける
+========================= */
+
+@media screen and (max-width: 480px) {
+  #skills .skill-card-video {
+    --label-x: -10px !important;
+    --label-y: 0px !important;
+  }
+
+  #skills .skill-card-design {
+    --label-x: 8px !important;
+    --label-y: 50px !important;
+  }
+
+  #skills .skill-card-illustration {
+    --label-x: 50px !important;
+    --label-y: -10px !important;
+  }
+
+  #skills .skill-card-web {
+    --label-x: 18px !important;
+    --label-y: 8px !important;
+  }
+
+  #skills .skill-card-vtuber {
+    --label-x: 18px !important;
+    --label-y: -10px !important;
   }
 }
