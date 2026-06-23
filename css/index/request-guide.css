@@ -3,7 +3,7 @@
 ========================= */
 
 .request-guide {
-  padding: 112px 24px;
+  padding: 96px 24px;
   box-sizing: border-box;
   color: white;
 }
@@ -15,7 +15,7 @@
 
 .request-guide-heading {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 42px;
 }
 
 .request-guide-heading h2 {
@@ -43,16 +43,16 @@
 ========================= */
 
 .guide-block {
-  margin-top: 52px;
-  padding: 34px;
+  margin-top: 34px;
+  padding: 28px 30px;
 
-  border-radius: 34px;
+  border-radius: 30px;
 
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(220, 240, 255, 0.22);
 
   box-shadow:
-    0 0 24px rgba(120, 210, 255, 0.12),
+    0 0 22px rgba(120, 210, 255, 0.11),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(16px);
@@ -60,9 +60,9 @@
 }
 
 .guide-block h3 {
-  margin: 0 0 28px;
+  margin: 0 0 22px;
 
-  font-size: 24px;
+  font-size: 23px;
   letter-spacing: 0.08em;
 
   color: rgba(220, 245, 255, 0.96);
@@ -84,10 +84,16 @@
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px 90px;
+  gap: 24px 42px;
 
-  padding: 12px 0 6px;
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  padding: 0;
 }
+
+/* =========================
+   Flow Line
+========================= */
 
 .flow-line {
   position: absolute;
@@ -102,59 +108,76 @@
   box-shadow: 0 0 6px rgba(170, 230, 255, 0.16);
 
   transform-origin: left center;
-  opacity: 0.8;
+  opacity: 0.42;
 }
 
 /* 01 → 02 */
 .flow-line-1 {
-  left: 42.5%;
-  top: 17%;
-  width: 18%;
-  transform: rotate(36deg);
+  left: 43%;
+  top: 16.5%;
+  width: 13%;
+  transform: rotate(34deg);
 }
 
 /* 02 → 03 */
 .flow-line-2 {
-  left: 39%;
-  top: 40.5%;
-  width: 23%;
-  transform: rotate(-38deg);
+  left: 43%;
+  top: 39%;
+  width: 13%;
+  transform: rotate(-34deg);
 }
 
 /* 03 → 04 */
 .flow-line-3 {
-  left: 41%;
-  top: 59.5%;
-  width: 20%;
-  transform: rotate(36deg);
+  left: 43%;
+  top: 59%;
+  width: 13%;
+  transform: rotate(34deg);
 }
 
 /* 04 → 05 */
 .flow-line-4 {
-  left: 41%;
-  top: 80.5%;
-  width: 20%;
-  transform: rotate(-38deg);
+  left: 43%;
+  top: 79%;
+  width: 13%;
+  transform: rotate(-34deg);
 }
+
+/* =========================
+   Flow Card
+========================= */
 
 .flow-card {
   position: relative;
   z-index: 1;
 
-  width: min(100%, 400px);
-  padding: 24px 22px 20px;
+  width: 100%;
+  min-height: 230px;
+
+  padding: 28px 28px 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
 
   border-radius: 28px;
 
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(220, 240, 255, 0.22);
+  text-align: left;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(220, 240, 255, 0.24);
 
   box-shadow:
-    0 0 18px rgba(120, 210, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 0 20px rgba(120, 210, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+
+  opacity: 1;
+  visibility: visible;
 
   transition:
     transform 0.3s ease,
@@ -165,75 +188,104 @@
 .flow-card:hover {
   transform: translateY(-6px);
 
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
 
   box-shadow:
-    0 0 24px rgba(170, 230, 255, 0.18),
-    0 0 40px rgba(80, 150, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    0 0 26px rgba(170, 230, 255, 0.2),
+    0 0 46px rgba(80, 150, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .flow-card-1 {
   grid-column: 1;
   grid-row: 1;
-  justify-self: start;
+  justify-self: stretch;
 }
 
 .flow-card-2 {
   grid-column: 2;
   grid-row: 2;
-  justify-self: end;
+  justify-self: stretch;
 }
 
 .flow-card-3 {
   grid-column: 1;
   grid-row: 3;
-  justify-self: start;
+  justify-self: stretch;
 }
 
 .flow-card-4 {
   grid-column: 2;
   grid-row: 4;
-  justify-self: end;
+  justify-self: stretch;
 }
 
 .flow-card-5 {
   grid-column: 1 / 3;
   grid-row: 5;
+
+  width: calc((100% - 42px) / 2);
   justify-self: center;
+}
+
+/* =========================
+   Flow Text
+========================= */
+
+.flow-text {
+  width: 100%;
+}
+
+.flow-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px;
+
+  margin: 0 0 12px;
 }
 
 .flow-number {
   display: inline-block;
-  margin-bottom: 12px;
 
-  font-size: 13px;
+  margin: 0;
+
+  font-size: 25px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  line-height: 1;
+  letter-spacing: 0.16em;
 
-  color: rgba(210, 240, 255, 0.74);
+  color: rgba(210, 240, 255, 0.84);
 }
 
 .flow-text h4 {
-  margin: 0 0 10px;
+  margin: 0;
 
-  font-size: 20px;
-  letter-spacing: 0.04em;
+  font-size: 30px;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+
   color: #ffffff;
 }
 
 .flow-text p {
   margin: 0;
 
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.85;
+
+  color: rgba(255, 255, 255, 0.84);
 }
+
+/* =========================
+   Flow Image
+========================= */
 
 .flow-image-wrap {
   width: 100%;
   height: 170px;
 
-  margin-top: 18px;
+  margin: 0;
 
   display: flex;
   align-items: center;
@@ -242,8 +294,8 @@
 
 .guide-step-image {
   width: 100%;
-  max-width: 210px;
-  height: 150px;
+  max-width: 230px;
+  height: 170px;
 
   display: block;
   object-fit: contain;
@@ -256,6 +308,18 @@
   opacity: 0.95;
 }
 
+.flow-card-1 .guide-step-image,
+.flow-card-2 .guide-step-image,
+.flow-card-3 .guide-step-image {
+  max-width: 305px;
+  height: 238px;
+}
+
+.flow-card-5 .guide-step-image {
+  max-width: 250px;
+  height: 180px;
+}
+
 /* =========================
    Schedule
 ========================= */
@@ -263,11 +327,11 @@
 .schedule-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .schedule-card {
-  padding: 22px;
+  padding: 18px;
 
   border-radius: 24px;
 
@@ -364,11 +428,11 @@
 .delivery-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .delivery-card {
-  padding: 22px;
+  padding: 18px;
 
   border-radius: 24px;
 
@@ -476,6 +540,8 @@
   .flow-zigzag {
     grid-template-columns: 1fr;
     gap: 18px;
+
+    width: 100%;
   }
 
   .flow-line {
@@ -491,7 +557,12 @@
     grid-column: auto;
     grid-row: auto;
     justify-self: stretch;
+
     width: 100%;
+  }
+
+  .flow-card {
+    min-height: auto;
   }
 }
 
@@ -511,11 +582,31 @@
     grid-template-columns: 1fr;
   }
 
+  .flow-card {
+    padding: 24px 22px 20px;
+  }
+
+  .flow-number {
+    font-size: 16px;
+  }
+
+  .flow-text h4 {
+    font-size: 20px;
+  }
+
+  .flow-text p {
+    font-size: 14px;
+  }
+
   .flow-image-wrap {
     height: 150px;
   }
 
-  .guide-step-image {
+  .guide-step-image,
+  .flow-card-1 .guide-step-image,
+  .flow-card-2 .guide-step-image,
+  .flow-card-3 .guide-step-image,
+  .flow-card-5 .guide-step-image {
     max-width: 190px;
     height: 140px;
   }
@@ -526,5 +617,106 @@
 
   .faq-item p {
     padding: 0 18px 18px 38px;
+  }
+}
+
+/* =========================
+   Flow Layout / PC Wide Zigzag
+   左右の余白を減らす
+========================= */
+
+@media screen and (min-width: 821px) {
+  .request-guide .flow-zigzag {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin: 0 auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+
+    padding: 0 !important;
+  }
+
+  .request-guide .flow-card {
+    width: min(74%, 780px) !important;
+    min-height: 250px !important;
+
+    padding: 32px 38px 28px !important;
+    box-sizing: border-box !important;
+
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 260px !important;
+    grid-template-areas: "text image" !important;
+    column-gap: 30px !important;
+    align-items: center !important;
+
+    border-radius: 30px !important;
+  }
+
+  .request-guide .flow-card-1,
+  .request-guide .flow-card-3 {
+    align-self: flex-start !important;
+  }
+
+  .request-guide .flow-card-2,
+  .request-guide .flow-card-4 {
+    align-self: flex-end !important;
+  }
+
+  .request-guide .flow-card-5 {
+    width: min(74%, 780px) !important;
+    align-self: center !important;
+  }
+
+  .request-guide .flow-text {
+    grid-area: text !important;
+    width: 100% !important;
+  }
+
+  .request-guide .flow-image-wrap {
+    grid-area: image !important;
+
+    width: 260px !important;
+    height: 190px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .request-guide .guide-step-image,
+  .request-guide .flow-card-1 .guide-step-image,
+  .request-guide .flow-card-2 .guide-step-image,
+  .request-guide .flow-card-3 .guide-step-image,
+  .request-guide .flow-card-5 .guide-step-image {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: 190px !important;
+
+    object-fit: contain !important;
+  }
+
+  .request-guide .flow-title-row {
+    margin: 0 0 14px !important;
+  }
+
+  .request-guide .flow-number {
+    font-size: 26px !important;
+  }
+
+  .request-guide .flow-text h4 {
+    font-size: 32px !important;
+  }
+
+  .request-guide .flow-text p {
+    font-size: 17px !important;
+    line-height: 1.85 !important;
+  }
+
+  .request-guide .flow-line {
+    display: none !important;
   }
 }
