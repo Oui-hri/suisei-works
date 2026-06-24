@@ -1066,3 +1066,40 @@
     opacity: 0.22 !important;
   }
 }
+.request-guide .guide-item-list li {
+  position: relative !important;
+
+  min-height: 54px !important;
+  padding: 10px 12px !important;
+  box-sizing: border-box !important;
+
+  display: grid !important;
+  grid-template-columns: 12px minmax(0, 1fr) !important;
+  column-gap: 6px !important;
+  align-items: center !important;
+  justify-content: stretch !important;
+
+  border-radius: 18px !important;
+
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+
+.request-guide .guide-item-list li::before {
+  content: "✓" !important;
+
+  position: static !important;
+  display: inline-block !important;
+
+  width: 12px !important;
+
+  transform: none !important;
+
+  font-size: 10px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+
+  color: rgba(190, 235, 255, 0.95) !important;
+  text-shadow: 0 0 8px rgba(120, 220, 255, 0.42) !important;
+}

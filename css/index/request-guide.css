@@ -720,3 +720,95 @@
     display: none !important;
   }
 }
+/* =========================
+   Flow Line / PC Restore
+   ご依頼の流れ：星座線を復活
+========================= */
+
+@media screen and (min-width: 821px) {
+  .request-guide .flow-zigzag {
+    position: relative !important;
+  }
+
+  .request-guide .flow-line {
+    display: block !important;
+
+    position: absolute !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    height: 2px !important;
+    border-radius: 999px !important;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(210, 240, 255, 0.36),
+      rgba(210, 240, 255, 0.18),
+      transparent
+    ) !important;
+
+    box-shadow:
+      0 0 8px rgba(170, 230, 255, 0.22),
+      0 0 18px rgba(120, 200, 255, 0.12) !important;
+
+    transform-origin: left center !important;
+    opacity: 0.72 !important;
+  }
+
+  .request-guide .flow-line::before,
+  .request-guide .flow-line::after {
+    content: "" !important;
+
+    position: absolute !important;
+    top: 50% !important;
+
+    width: 6px !important;
+    height: 6px !important;
+
+    border-radius: 50% !important;
+    background: rgba(230, 248, 255, 0.92) !important;
+
+    box-shadow:
+      0 0 8px rgba(230, 248, 255, 0.72),
+      0 0 18px rgba(120, 220, 255, 0.28) !important;
+
+    transform: translateY(-50%) !important;
+  }
+
+  .request-guide .flow-line::before {
+    left: 0 !important;
+  }
+
+  .request-guide .flow-line::after {
+    right: 0 !important;
+  }
+
+  .request-guide .flow-line-1 {
+    left: 48% !important;
+    top: 17.5% !important;
+    width: 12% !important;
+    transform: rotate(28deg) !important;
+  }
+
+  .request-guide .flow-line-2 {
+    left: 40% !important;
+    top: 41.8% !important;
+    width: 13% !important;
+    transform: rotate(-28deg) !important;
+  }
+
+  .request-guide .flow-line-3 {
+    left: 48% !important;
+    top: 58% !important;
+    width: 12% !important;
+    transform: rotate(28deg) !important;
+  }
+
+  .request-guide .flow-line-4 {
+    left: 40% !important;
+    top: 83% !important;
+    width: 13% !important;
+    transform: rotate(-28deg) !important;
+  }
+}
