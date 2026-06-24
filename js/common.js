@@ -288,15 +288,11 @@ if (menuToggle && headerMenu) {
 // Service Smartphone Accordion
 // =========================
 
-console.log("Service accordion JS loaded");
-
 const serviceCards = document.querySelectorAll(
   "#skills .skill-constellation-card"
 );
 
 const serviceMediaQuery = window.matchMedia("(max-width: 480px)");
-
-console.log("Service cards count:", serviceCards.length);
 
 function closeServiceCards() {
   serviceCards.forEach((card) => {
@@ -304,8 +300,6 @@ function closeServiceCards() {
     card.classList.remove("is-muted");
     card.setAttribute("aria-expanded", "false");
   });
-
-  console.log("Service cards closed");
 }
 
 function openServiceCard(activeCard) {
@@ -316,8 +310,6 @@ function openServiceCard(activeCard) {
     card.classList.toggle("is-muted", !isActive);
     card.setAttribute("aria-expanded", String(isActive));
   });
-
-  console.log("Service card opened:", activeCard.className);
 }
 
 if (serviceCards.length > 0) {
@@ -331,13 +323,10 @@ if (serviceCards.length > 0) {
       event.preventDefault();
       event.stopPropagation();
 
-      console.log("Service card clicked:", card.className);
-
       const isOpen = card.classList.contains("is-open");
 
       if (isOpen) {
         closeServiceCards();
-        card.blur();
         return;
       }
 
@@ -355,13 +344,18 @@ if (serviceCards.length > 0) {
     });
   });
 
-  document.addEventListener("click", () => {
+  document.addEventListener("click", (event) => {
     if (!serviceMediaQuery.matches) return;
 
-    closeServiceCards();
+    const clickedInsideService = event.target.closest("#skills");
+    const clickedInsideForm = event.target.closest(
+      "input, textarea, select, button, label, form, details, summary"
+    );
 
-    if (document.activeElement) {
-      document.activeElement.blur();
+    if (clickedInsideForm) return;
+
+    if (!clickedInsideService) {
+      closeServiceCards();
     }
   });
 

@@ -502,3 +502,75 @@
     padding: 12px 13px;
   }
 }
+/* =========================
+   Contact Select Option Fix
+   プルダウン選択肢の文字が見えない問題
+========================= */
+
+.contact-form select {
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.contact-form select option {
+  color: #1f255f;
+  background-color: #ffffff;
+}
+
+.contact-form select option:checked {
+  color: #ffffff;
+  background-color: #3b48b8;
+}
+/* =========================
+   Contact Form / Smartphone Click Fix
+   スマホ版でフォーム入力できない問題を修正
+========================= */
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  #contact,
+  .contact {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .contact-layout {
+    position: relative !important;
+    z-index: 6 !important;
+  }
+
+  .contact-form-area,
+  .contact-form {
+    position: relative !important;
+    z-index: 20 !important;
+
+    pointer-events: auto !important;
+  }
+
+  .contact-form label,
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea,
+  .contact-form button {
+    position: relative !important;
+    z-index: 30 !important;
+
+    pointer-events: auto !important;
+  }
+
+  .contact-form-area::before,
+  .contact-form-area::after,
+  .contact-layout::before,
+  .contact-layout::after,
+  .contact::before,
+  .contact::after,
+  #contact::before,
+  #contact::after {
+    pointer-events: none !important;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    touch-action: manipulation !important;
+  }
+}
